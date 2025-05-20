@@ -23,7 +23,14 @@
             <Font name="Calibri Bold Italic" size="20.0" />
          </font>
       </Text>
-      <Pane layoutX="522.0" prefHeight="600.0" prefWidth="478.0" style="-fx-background-color: #FAF6E9;" />
+      <Pane layoutX="522.0" prefHeight="600.0" prefWidth="478.0" style="-fx-background-color: #FAF6E9;">
+         <children>
+            <Button fx:id="u_ID_pass_Submit" layoutX="200.0" layoutY="414.0" mnemonicParsing="false" onAction="#u_ID_pass_Submit" prefHeight="20.0" prefWidth="88.0" stylesheets="@../style/style.css" text="Submit">
+               <font>
+                  <Font name="Arial" size="14.0" />
+               </font>
+            </Button>
+         </children></Pane>
       <TextField fx:id="userID" layoutX="668.0" layoutY="307.0" prefHeight="25.0" prefWidth="194.0" promptText="User ID" stylesheets="@../style/style.css" />
       <TextField fx:id="userPass" layoutX="668.0" layoutY="359.0" prefHeight="25.0" prefWidth="194.0" promptText="User Password" stylesheets="@../style/style.css" />
       <Text layoutX="668.0" layoutY="215.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Attendance System" textAlignment="CENTER" wrappingWidth="194.0">
@@ -32,10 +39,5 @@
          </font>
       </Text>
       <ChoiceBox fx:id="whoSelect" layoutX="668.0" layoutY="254.0" prefHeight="25.0" prefWidth="194.0" stylesheets="@../style/style.css" />
-      <Button fx:id="u_ID_pass_Submit" layoutX="721.0" layoutY="410.0" mnemonicParsing="false" onAction="#u_ID_pass_Submit" prefHeight="20.0" prefWidth="88.0" stylesheets="@../style/style.css" text="Submit">
-         <font>
-            <Font name="Arial" size="14.0" />
-         </font>
-      </Button>
    </children>
 </AnchorPane>
