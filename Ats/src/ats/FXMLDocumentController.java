@@ -34,15 +34,40 @@ public class FXMLDocumentController implements Initializable {
     @FXML
     private Button u_ID_pass_Submit;
     
+    // ADMIN User Password Credentials
+    private final String[][] adminCredentials ={
+        {"admin","admin"},
+        {"admn1","admin1"},
+    };
+    
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
         whoSelect.setItems(list);
         whoSelect.setValue("Who are you?");
+        
     }    
     
     @FXML
     private void u_ID_pass_Submit(ActionEvent event) {
+        // get text
+        String UserId = userID.getText();
+        String UserPassword = userPass.getText();
+        String selectedRole  = whoSelect.getValue();
+        
+        // print text
+        System.out.println("User ID: " + UserId);
+        System.out.println("User Password: " + UserPassword);
+        System.out.println("AST Select: " + selectedRole);
+        
+        // match user id & password
+        boolean isValid = false;
+        
+        switch(selectedRole){
+            case "admin":
+                isValid = chackCredentials(UserId,UserPassword,chackCredentials);
+                break;
+        }
     }
     
 }
