@@ -31,6 +31,11 @@
                   <Font name="Arial" size="14.0" />
                </font>
             </Button>
+            <Label fx:id="alart_wrong_user_pass" layoutX="200.0" layoutY="455.0" prefHeight="36.0" prefWidth="88.0" textAlignment="CENTER" textFill="RED">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Label>
          </children></Pane>
       <TextField fx:id="userID" layoutX="668.0" layoutY="307.0" prefHeight="25.0" prefWidth="194.0" promptText="User ID" styleClass="input" stylesheets="@../style/style.css" />
       <TextField fx:id="userPass" layoutX="668.0" layoutY="359.0" prefHeight="25.0" prefWidth="194.0" promptText="User Password" styleClass="bg-color" stylesheets="@../style/style.css" />
@@ -40,6 +45,5 @@
          </font>
       </Text>
       <ChoiceBox fx:id="whoSelect" layoutX="668.0" layoutY="254.0" prefHeight="25.0" prefWidth="194.0" stylesheets="@../style/style.css" />
-      <Label fx:id="allart_wrong_user_pass" prefHeight="17.0" prefWidth="0.0" />
    </children>
 </AnchorPane>

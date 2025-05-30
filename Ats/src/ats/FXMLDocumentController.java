@@ -35,7 +35,8 @@ public class FXMLDocumentController implements Initializable {
     private TextField userPass;
     @FXML
     private ChoiceBox<String> whoSelect;
-    
+    @FXML
+    private Label alart_wrong_user_pass;
     ObservableList<String> list = FXCollections.observableArrayList("Student","Teacher","Admin");
     @FXML
     private Button u_ID_pass_Submit;
@@ -57,6 +58,9 @@ public class FXMLDocumentController implements Initializable {
     
     @FXML
     private void u_ID_pass_Submit(ActionEvent event) {
+        // admin Controller
+        
+        
         // get text
         String UserId = userID.getText();
         String UserPassword = userPass.getText();
@@ -79,20 +83,22 @@ public class FXMLDocumentController implements Initializable {
             System.out.println("Login successful for " + selectedRole + ": " + UserId);
             
             try {
-                Parent root = FXMLLoader.load(getClass().getResource("admin.fxml"));
+                Parent root =  FXMLLoader.load(getClass().getResource("admin.fxml"));
                 Stage stage = new Stage();
                 stage.setTitle("Admin Panel");
                 stage.setScene(new Scene(root));
                 stage.show();
-
+                
+                
                 // Close login window
                 ((Stage) ((Node) event.getSource()).getScene().getWindow()).close();
             } catch (IOException e) {
-                System.err.println("Failed to load admin.fxml: " + e.getMessage());
+                System.err.println("Failed to load admin.fxml: " + e.getMessage()); 
             }
             
         } else {
             System.out.println("Invalid ID or Password for " + selectedRole);
+            alart_wrong_user_pass.setText("Wrong Id Pass!!");
         }
     }
         private boolean checkCredentials(String id, String pass, String[][] credentials) {
