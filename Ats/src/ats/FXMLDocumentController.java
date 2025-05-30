@@ -4,17 +4,23 @@
  */
 package ats;
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.stage.Stage;
 
 /**
  *
@@ -38,6 +44,7 @@ public class FXMLDocumentController implements Initializable {
     private final String[][] adminCredentials ={
         {"admin","admin"},
         {"admn1","admin1"},
+        {"223071114","Haisam1234"}
     };
     
     @Override
@@ -64,10 +71,36 @@ public class FXMLDocumentController implements Initializable {
         boolean isValid = false;
         
         switch(selectedRole){
-            case "admin":
-                isValid = chackCredentials(UserId,UserPassword,chackCredentials);
+            case "Admin":
+                isValid = checkCredentials(UserId,UserPassword,adminCredentials);
                 break;
         }
+        if (isValid) {
+            System.out.println("Login successful for " + selectedRole + ": " + UserId);
+            
+            try {
+                Parent root = FXMLLoader.load(getClass().getResource("admin.fxml"));
+                Stage stage = new Stage();
+                stage.setTitle("Admin Panel");
+                stage.setScene(new Scene(root));
+                stage.show();
+
+                // Close login window
+                ((Stage) ((Node) event.getSource()).getScene().getWindow()).close();
+            } catch (IOException e) {
+                System.err.println("Failed to load admin.fxml: " + e.getMessage());
+            }
+            
+        } else {
+            System.out.println("Invalid ID or Password for " + selectedRole);
+        }
     }
-    
+        private boolean checkCredentials(String id, String pass, String[][] credentials) {
+        for (String[] pair : credentials) {
+            if (pair[0].equals(id) && pair[1].equals(pass)) {     
+                return true;
+            }
+        }
+        return false;
+    }
 }
