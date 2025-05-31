@@ -23,7 +23,6 @@ public class AdminController implements Initializable {
     @FXML
     private Label admin_Ast;
     @FXML
-    private AnchorPane candidate_ast;
 
     public void User_Id(String UserId){
         admin_Id.setText(UserId);

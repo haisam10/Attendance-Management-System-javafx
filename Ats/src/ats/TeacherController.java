@@ -15,25 +15,27 @@ import javafx.scene.control.Label;
  *
  * @author mdhhd
  */
-public class StudentController implements Initializable {
+public class TeacherController implements Initializable {
 
     @FXML
-    private Label std_id;
+    private Label tec_Id;
     @FXML
-    private Label std_Ast;
+    private Label tec_Ast;
 
-     public void User_Id(String UserId){
-        std_id.setText(UserId);
+    public void User_Id(String UserId) {
+        tec_Id.setText(UserId);
     }
-    public void Candidate(String selectedRole){
-       std_Ast.setText(selectedRole);
+
+    public void Candidate(String selectedRole) {
+        tec_Ast.setText(selectedRole);
     }
+
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
-    }    
-    
+    }
+
 }

@@ -37,13 +37,27 @@ public class FXMLDocumentController implements Initializable {
 
     ObservableList<String> list = FXCollections.observableArrayList("Student", "Teacher", "Admin");
 
-    // ADMIN User Password Credentials
+    // Admin Credentials
     private final String[][] adminCredentials = {
         {"admin", "admin"},
+        {"adm","adm"},
         {"1234", "demo"},
         {"223071114", "Haisam"}
     };
-
+    // student Credentials
+    private final String[][] studentCredentials = {
+        {"student", "student"},
+        {"stu", "stu"},
+        {"223071114", "Haisam"}
+    };
+    // Teacher Credentials
+    private final String[][] teacherCredentials = {
+        {"teacher","teacher"},
+        {"tec", "tec"},
+        {"teacher", "pass2"},
+        {"223071114", "Haisam"}
+    };
+    
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         whoSelect.setItems(list);
@@ -61,33 +75,57 @@ public class FXMLDocumentController implements Initializable {
         System.out.println("AST Select: " + selectedRole);
 
         boolean isValid = false;
-
+        String fxmlFile = null;
+        
+        // all file calling
         switch (selectedRole) {
-            case "Admin" -> isValid = checkCredentials(UserId, UserPassword, adminCredentials);
+            case "Admin" -> {
+                isValid = checkCredentials(UserId, UserPassword, adminCredentials);
+                fxmlFile = "admin.fxml";
+            }
+            case "Student" -> {
+                isValid = checkCredentials(UserId, UserPassword, studentCredentials);
+                fxmlFile = "student.fxml";
+            }
+            case "Teacher" -> {
+                isValid = checkCredentials(UserId, UserPassword, teacherCredentials);
+                fxmlFile = "teacher.fxml";
+            }
         }
 
-        if (isValid) {
-            System.out.println("Login successful for " + selectedRole + ": " + UserId);
-
+        if (isValid && fxmlFile != null) {
             try {
-                FXMLLoader loader = new FXMLLoader(getClass().getResource("admin.fxml"));
+                FXMLLoader loader = new FXMLLoader(getClass().getResource(fxmlFile));
                 Parent root = loader.load();
 
-                AdminController admin_ID = loader.getController();
-                admin_ID.User_Id(UserId);  // Pass username to Admin panel
-                admin_ID.Candidate(selectedRole);
+                // Cast to correct controller based on role
+                if (selectedRole.equals("Admin")) {
+                    AdminController admin_ID = loader.getController();
+                    admin_ID.User_Id(UserId);
+                    admin_ID.Candidate(selectedRole);
+                } 
+                else if (selectedRole.equals("Student")) {
+                    StudentController student_ID = loader.getController();
+                    student_ID.User_Id(UserId);
+                    student_ID.Candidate(selectedRole);
+                }
+                else if (selectedRole.equals("Teacher")) {
+                    TeacherController teacher_ID = loader.getController();
+                    teacher_ID.User_Id(UserId);
+                    teacher_ID.Candidate(selectedRole);
+                }
 
                 Stage stage = new Stage();
                 stage.setScene(new Scene(root));
+                stage.setTitle(selectedRole + " Panel");
                 stage.show();
 
                 // Close login window
                 ((Stage) ((Node) event.getSource()).getScene().getWindow()).close();
-
             } catch (IOException e) {
-                System.err.println("Failed to load admin.fxml: " + e.getMessage());
+                System.err.println("Failed to load " + fxmlFile + ": " + e.getMessage());
+                e.printStackTrace();
             }
-
         } else {
             System.out.println("Invalid ID or Password for " + selectedRole);
             alart_wrong_user_pass.setText("Wrong ID or Password!");
