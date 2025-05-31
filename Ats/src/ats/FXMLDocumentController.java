@@ -1,7 +1,3 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/javafx/FXML2.java to edit this template
- */
 package ats;
 
 import java.io.IOException;
@@ -27,8 +23,7 @@ import javafx.stage.Stage;
  * @author mdhhd
  */
 public class FXMLDocumentController implements Initializable {
-    
-    private Label label;
+
     @FXML
     private TextField userID;
     @FXML
@@ -37,73 +32,71 @@ public class FXMLDocumentController implements Initializable {
     private ChoiceBox<String> whoSelect;
     @FXML
     private Label alart_wrong_user_pass;
-    ObservableList<String> list = FXCollections.observableArrayList("Student","Teacher","Admin");
     @FXML
     private Button u_ID_pass_Submit;
-    
+
+    ObservableList<String> list = FXCollections.observableArrayList("Student", "Teacher", "Admin");
+
     // ADMIN User Password Credentials
-    private final String[][] adminCredentials ={
-        {"admin","admin"},
-        {"admn1","admin1"},
-        {"223071114","Haisam1234"}
+    private final String[][] adminCredentials = {
+        {"admin", "admin"},
+        {"1234", "demo"},
+        {"223071114", "Haisam"}
     };
-    
+
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        // TODO
         whoSelect.setItems(list);
         whoSelect.setValue("Who are you?");
-        
-    }    
-    
+    }
+
     @FXML
     private void u_ID_pass_Submit(ActionEvent event) {
-        // admin Controller
-        
-        
-        // get text
         String UserId = userID.getText();
         String UserPassword = userPass.getText();
-        String selectedRole  = whoSelect.getValue();
-        
-        // print text
+        String selectedRole = whoSelect.getValue();
+
         System.out.println("User ID: " + UserId);
         System.out.println("User Password: " + UserPassword);
         System.out.println("AST Select: " + selectedRole);
-        
-        // match user id & password
+
         boolean isValid = false;
-        
-        switch(selectedRole){
-            case "Admin":
-                isValid = checkCredentials(UserId,UserPassword,adminCredentials);
-                break;
+
+        switch (selectedRole) {
+            case "Admin" -> isValid = checkCredentials(UserId, UserPassword, adminCredentials);
         }
+
         if (isValid) {
             System.out.println("Login successful for " + selectedRole + ": " + UserId);
-            
+
             try {
-                Parent root =  FXMLLoader.load(getClass().getResource("admin.fxml"));
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("admin.fxml"));
+                Parent root = loader.load();
+
+                AdminController admin_ID = loader.getController();
+                admin_ID.User_Id(UserId);  // Pass username to Admin panel
+                admin_ID.Candidate(selectedRole);
+
                 Stage stage = new Stage();
-                stage.setTitle("Admin Panel");
                 stage.setScene(new Scene(root));
                 stage.show();
-                
-                
+
                 // Close login window
                 ((Stage) ((Node) event.getSource()).getScene().getWindow()).close();
+
             } catch (IOException e) {
-                System.err.println("Failed to load admin.fxml: " + e.getMessage()); 
+                System.err.println("Failed to load admin.fxml: " + e.getMessage());
             }
-            
+
         } else {
             System.out.println("Invalid ID or Password for " + selectedRole);
-            alart_wrong_user_pass.setText("Wrong Id Pass!!");
+            alart_wrong_user_pass.setText("Wrong ID or Password!");
         }
     }
-        private boolean checkCredentials(String id, String pass, String[][] credentials) {
+
+    private boolean checkCredentials(String id, String pass, String[][] credentials) {
         for (String[] pair : credentials) {
-            if (pair[0].equals(id) && pair[1].equals(pass)) {     
+            if (pair[0].equals(id) && pair[1].equals(pass)) {
                 return true;
             }
         }

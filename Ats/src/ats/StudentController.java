@@ -6,31 +6,15 @@ package ats;
 
 import java.net.URL;
 import java.util.ResourceBundle;
-import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Label;
-import javafx.scene.layout.AnchorPane;
 
 /**
  * FXML Controller class
  *
  * @author mdhhd
  */
-public class AdminController implements Initializable {
+public class StudentController implements Initializable {
 
-    @FXML
-    private Label admin_Id;
-    @FXML
-    private Label admin_Ast;
-    @FXML
-    private AnchorPane candidate_ast;
-
-    public void User_Id(String UserId){
-        admin_Id.setText(UserId);
-    }
-    public void Candidate(String selectedRole){
-       admin_Ast.setText(selectedRole);
-    }
     /**
      * Initializes the controller class.
      */
@@ -38,4 +22,5 @@ public class AdminController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
     }    
+    
 }
