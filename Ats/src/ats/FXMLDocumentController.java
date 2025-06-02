@@ -47,6 +47,7 @@ public class FXMLDocumentController implements Initializable {
     // student Credentials
     private final String[][] studentCredentials = {
         {"student", "student"},
+        {"1234","pass1234"},
         {"stu", "stu"},
         {"223071114", "Haisam"}
     };
