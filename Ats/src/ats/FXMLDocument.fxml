@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.lang.String?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ChoiceBox?>
 <?import javafx.scene.control.Label?>
@@ -13,7 +14,19 @@
 
 <AnchorPane id="AnchorPane" prefHeight="600.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ats.FXMLDocumentController">
    <children>
-      <Pane layoutX="-3.0" prefHeight="600.0" prefWidth="528.0" style="-fx-background-color: #FFFDF6;" />
+      <Pane layoutX="-3.0" prefHeight="600.0" prefWidth="528.0" style="-fx-background-color: #FFFDF6;">
+         <children>
+            <Text layoutX="177.0" layoutY="404.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Sector# 17/H-1,Uttara, Dhaka-1230, Dhaka 1230" textAlignment="CENTER">
+               <font>
+                  <Font size="11.0" />
+               </font>
+            </Text>
+            <Text layoutX="193.0" layoutY="388.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Permanent Campus Plot# 06, Avenue# 06" textAlignment="CENTER">
+               <font>
+                  <Font size="11.0" />
+               </font>
+            </Text>
+         </children></Pane>
       <ImageView fitHeight="139.0" fitWidth="200.0" layoutX="164.0" layoutY="174.0">
          <image>
             <Image url="@../image/SMUCT%20Logo.png" />
@@ -26,7 +39,7 @@
       </Text>
       <Pane layoutX="522.0" prefHeight="600.0" prefWidth="478.0" style="-fx-background-color: #FAF6E9;">
          <children>
-            <Button fx:id="u_ID_pass_Submit" layoutX="200.0" layoutY="414.0" mnemonicParsing="false" onAction="#u_ID_pass_Submit" prefHeight="20.0" prefWidth="88.0" stylesheets="@../style/style.css" text="Submit">
+            <Button fx:id="u_ID_pass_Submit" layoutX="200.0" layoutY="414.0" mnemonicParsing="false" onAction="#u_ID_pass_Submit" prefHeight="36.0" prefWidth="88.0" stylesheets="@../style/style.css" text="Submit" textFill="WHITE">
                <font>
                   <Font name="Arial" size="14.0" />
                </font>
@@ -38,12 +51,16 @@
             </Label>
          </children></Pane>
       <TextField fx:id="userID" layoutX="668.0" layoutY="307.0" prefHeight="25.0" prefWidth="194.0" promptText="User ID" styleClass="input" stylesheets="@../style/style.css" />
-      <TextField fx:id="userPass" layoutX="668.0" layoutY="359.0" prefHeight="25.0" prefWidth="194.0" promptText="User Password" styleClass="bg-color" stylesheets="@../style/style.css" />
+      <TextField fx:id="userPass" layoutX="668.0" layoutY="359.0" prefHeight="25.0" prefWidth="194.0" promptText="User Password" stylesheets="@../style/style.css">
+         <styleClass>
+            <String fx:value="bg-color" />
+            <String fx:value="input" />
+         </styleClass></TextField>
       <Text layoutX="668.0" layoutY="215.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Attendance System" textAlignment="CENTER" wrappingWidth="194.0">
          <font>
             <Font name="Calibri Bold Italic" size="20.0" />
          </font>
       </Text>
-      <ChoiceBox fx:id="whoSelect" layoutX="668.0" layoutY="254.0" prefHeight="25.0" prefWidth="194.0" stylesheets="@../style/style.css" />
+      <ChoiceBox fx:id="whoSelect" layoutX="668.0" layoutY="254.0" prefHeight="25.0" prefWidth="194.0" styleClass="input" stylesheets="@../style/style.css" />
    </children>
 </AnchorPane>
