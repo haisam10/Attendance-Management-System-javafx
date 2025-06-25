@@ -48,7 +48,7 @@
                   <Font name="Arial" size="14.0" />
                </font>
             </Button>
-            <Label fx:id="alart_wrong_user_pass" layoutX="200.0" layoutY="455.0" prefHeight="36.0" prefWidth="88.0" textAlignment="CENTER" textFill="RED">
+            <Label fx:id="alart_wrong_user_pass" layoutX="150.0" layoutY="455.0" prefHeight="36.0" prefWidth="194.0" textAlignment="CENTER" textFill="RED">
                <font>
                   <Font name="System Bold" size="12.0" />
                </font>

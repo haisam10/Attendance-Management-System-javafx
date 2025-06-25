@@ -9,7 +9,9 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
-
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.SQLException;
 /**
  *
  * @author mdhhd
@@ -25,6 +27,21 @@ public class Ats extends Application {
         stage.setScene(scene);
         stage.show();
     }
+
+public class DatabaseConnection {
+    public Connection getConnection() {
+        try {
+            String url = "jdbc:mysql://localhost:3306/ats_db";
+            String user = "root"; // Default for XAMPP
+            String password = ""; // Leave blank if no password
+            return DriverManager.getConnection(url, user, password);
+        } catch (SQLException e) {
+            System.out.println("Database Connection Failed!");
+            e.printStackTrace();
+            return null;
+        }
+    }
+}
 
     /**
      * @param args the command line arguments
