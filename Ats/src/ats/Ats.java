@@ -27,6 +27,7 @@ public class Ats extends Application {
         stage.setScene(scene);
         stage.show();
     }
+    
 
 public class DatabaseConnection {
     public Connection getConnection() {
