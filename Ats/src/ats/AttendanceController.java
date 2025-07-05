@@ -15,6 +15,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.Label;
+import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
 public class AttendanceController implements Initializable{
@@ -69,7 +70,6 @@ public class AttendanceController implements Initializable{
             ps.setDate(2, java.sql.Date.valueOf(date));
             ps.setString(3, status);
             ps.setString(4, role);
-
             ps.executeUpdate();
             System.out.println("✅ Attendance Marked");
 
