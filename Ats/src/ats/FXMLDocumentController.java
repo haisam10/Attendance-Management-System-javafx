@@ -61,7 +61,7 @@ public class FXMLDocumentController implements Initializable {
         String fxmlFile = null;
 
         switch (selectedRole) {
-            case "Admin" -> fxmlFile = "Attendance.fxml";
+            case "Admin" -> fxmlFile = "admin.fxml";
             case "Student" -> fxmlFile = "student.fxml";
             case "Teacher" -> fxmlFile = "teacher.fxml";
         }
