@@ -10,18 +10,10 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane id="AnchorPane" fx:id="candidate_ast" prefHeight="767.0" prefWidth="1300.0" style="-fx-background-color: #222831;" stylesheets="@../style/style.css" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ats.AdminController">
+<AnchorPane id="AnchorPane" fx:id="candidate_ast" prefHeight="573.0" prefWidth="981.0" style="-fx-background-color: #222831;" stylesheets="@../style/style.css" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ats.AdminController">
    <children>
-      <Pane prefHeight="85.0" prefWidth="1300.0" style="-fx-background-color: #27548A;">
+      <Pane prefHeight="85.0" prefWidth="981.0" style="-fx-background-color: #27548A;">
          <children>
-            <Text fill="WHITE" layoutX="1087.0" layoutY="36.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Your ID :">
-               <font>
-                  <Font name="System Bold" size="12.0" />
-               </font></Text>
-            <Label fx:id="admin_Id" layoutX="1140.0" layoutY="21.0" prefHeight="20.0" prefWidth="137.0" style="-fx-background-color: #fff; -fx-background-radius: 3px;" text="{data:inport}" textAlignment="CENTER">
-               <padding>
-                  <Insets bottom="1.0" left="10.0" />
-               </padding></Label>
             <Text fill="WHITE" layoutX="113.0" layoutY="31.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Shanto-Mariam University of Creative Technology">
                <font>
                   <Font name="System Bold" size="20.0" />
@@ -33,16 +25,6 @@
                   <Image url="@../image/SMUCT%20Logo.png" />
                </image>
             </ImageView>
-            <Text fill="WHITE" layoutX="1072.0" layoutY="60.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Candidate : ">
-               <font>
-                  <Font name="System Bold" size="12.0" />
-               </font>
-            </Text>
-            <Label fx:id="admin_Ast" layoutX="1140.0" layoutY="45.0" prefHeight="20.0" prefWidth="137.0" style="-fx-background-color: #fff; -fx-background-radius: 3px;" text="{data:inport}" textAlignment="CENTER">
-               <padding>
-                  <Insets bottom="1.0" left="10.0" />
-               </padding>
-            </Label>
             <Text fill="WHITE" layoutX="113.0" layoutY="57.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Permanent Campus Plot# 06, Avenue# 06">
                <font>
                   <Font size="11.0" />
@@ -55,48 +37,31 @@
             </Text>
          </children>
       </Pane>
-      <Pane layoutY="85.0" prefHeight="682.0" prefWidth="234.0" style="-fx-background-color: #183B4E;">
+      <Pane layoutY="85.0" prefHeight="526.0" prefWidth="234.0" style="-fx-background-color: #183B4E;">
          <children>
-            <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="234.0" style="-fx-background-color: #547792; -fx-border-color: #000;" stylesheets="@../style/style.css" text="{data: fx-Button}" textFill="WHITE">
+            <Button layoutY="88.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="234.0" style="-fx-background-color: #547792; -fx-border-color: #000;" stylesheets="@../style/style.css" text="{data: fx-Button}" textFill="WHITE">
                <font>
                   <Font name="System Bold" size="12.0" />
                </font>
             </Button>
-            <Button layoutY="25.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="234.0" style="-fx-background-color: #547792; -fx-border-color: #000;" stylesheets="@../style/style.css" text="{data: fx-Button}" textFill="WHITE">
+            <Text fill="WHITE" layoutX="29.0" layoutY="33.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Your ID :">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font></Text>
+            <Label fx:id="admin_Id" layoutX="82.0" layoutY="18.0" prefHeight="20.0" prefWidth="137.0" style="-fx-background-color: #fff; -fx-background-radius: 3px;" text="{data:inport}" textAlignment="CENTER">
+               <padding>
+                  <Insets bottom="1.0" left="10.0" />
+               </padding></Label>
+            <Text fill="WHITE" layoutX="14.0" layoutY="57.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Candidate : ">
                <font>
                   <Font name="System Bold" size="12.0" />
                </font>
-            </Button>
-            <Button layoutY="50.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="234.0" style="-fx-background-color: #547792; -fx-border-color: #000;" stylesheets="@../style/style.css" text="{data: fx-Button}" textFill="WHITE">
-               <font>
-                  <Font name="System Bold" size="12.0" />
-               </font>
-            </Button>
-            <Button layoutY="75.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="234.0" style="-fx-background-color: #547792; -fx-border-color: #000;" stylesheets="@../style/style.css" text="{data: fx-Button}" textFill="WHITE">
-               <font>
-                  <Font name="System Bold" size="12.0" />
-               </font>
-            </Button>
-            <Button layoutY="100.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="234.0" style="-fx-background-color: #547792; -fx-border-color: #000;" stylesheets="@../style/style.css" text="{data: fx-Button}" textFill="WHITE">
-               <font>
-                  <Font name="System Bold" size="12.0" />
-               </font>
-            </Button>
-            <Button layoutY="125.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="234.0" style="-fx-background-color: #547792; -fx-border-color: #000;" stylesheets="@../style/style.css" text="{data: fx-Button}" textFill="WHITE">
-               <font>
-                  <Font name="System Bold" size="12.0" />
-               </font>
-            </Button>
-            <Button layoutY="150.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="234.0" style="-fx-background-color: #547792; -fx-border-color: #000;" stylesheets="@../style/style.css" text="{data: fx-Button}" textFill="WHITE">
-               <font>
-                  <Font name="System Bold" size="12.0" />
-               </font>
-            </Button>
-            <Button layoutY="175.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="234.0" style="-fx-background-color: #547792; -fx-border-color: #000;" stylesheets="@../style/style.css" text="{data: fx-Button}" textFill="WHITE">
-               <font>
-                  <Font name="System Bold" size="12.0" />
-               </font>
-            </Button>
+            </Text>
+            <Label fx:id="admin_Ast" layoutX="82.0" layoutY="42.0" prefHeight="20.0" prefWidth="137.0" style="-fx-background-color: #fff; -fx-background-radius: 3px;" text="{data:inport}" textAlignment="CENTER">
+               <padding>
+                  <Insets bottom="1.0" left="10.0" />
+               </padding>
+            </Label>
          </children>
       </Pane>
    </children>

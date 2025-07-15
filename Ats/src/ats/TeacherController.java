@@ -64,12 +64,11 @@ public class TeacherController implements Initializable {
         textFild.clear();
     }
     }
-
-    void Candidate(String selectedRole) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+public void Candidate(String selectedRole){
+       tec_Ast.setText(selectedRole);
     }
-
     @FXML
     private void addButton(ActionEvent event) {
     }
+
 }
