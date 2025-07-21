@@ -44,7 +44,7 @@ public class TeacherController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
            
-        rootItem = new TreeItem<>("Root", new ImageView(icon));
+        rootItem = new TreeItem<>("Class", new ImageView(icon));
         treeview.setRoot(rootItem);
         treeview.setShowRoot(true);
     }

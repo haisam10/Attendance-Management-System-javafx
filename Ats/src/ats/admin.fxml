@@ -10,9 +10,9 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane id="AnchorPane" fx:id="candidate_ast" prefHeight="573.0" prefWidth="981.0" style="-fx-background-color: #222831;" stylesheets="@../style/style.css" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ats.AdminController">
+<AnchorPane id="AnchorPane" fx:id="candidate_ast" prefHeight="557.0" prefWidth="844.0" style="-fx-background-color: #222831;" stylesheets="@../style/style.css" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ats.AdminController">
    <children>
-      <Pane prefHeight="85.0" prefWidth="981.0" style="-fx-background-color: #27548A;">
+      <Pane prefHeight="85.0" prefWidth="844.0" style="-fx-background-color: #27548A;">
          <children>
             <Text fill="WHITE" layoutX="113.0" layoutY="31.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Shanto-Mariam University of Creative Technology">
                <font>
@@ -37,32 +37,68 @@
             </Text>
          </children>
       </Pane>
-      <Pane layoutY="85.0" prefHeight="526.0" prefWidth="234.0" style="-fx-background-color: #183B4E;">
+      <Pane layoutY="85.0" prefHeight="485.0" prefWidth="234.0" style="-fx-background-color: #183B4E;">
          <children>
-            <Button layoutY="88.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="234.0" style="-fx-background-color: #547792; -fx-border-color: #000;" stylesheets="@../style/style.css" text="{data: fx-Button}" textFill="WHITE">
-               <font>
-                  <Font name="System Bold" size="12.0" />
-               </font>
-            </Button>
-            <Text fill="WHITE" layoutX="29.0" layoutY="33.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Your ID :">
+            <ImageView accessibleText="home" fitHeight="55.0" fitWidth="49.0" layoutX="93.0" layoutY="23.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../image/icons8-id-card.gif" />
+               </image>
+            </ImageView>
+            <Text fill="WHITE" layoutX="29.0" layoutY="94.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Your ID :">
                <font>
                   <Font name="System Bold" size="12.0" />
                </font></Text>
-            <Label fx:id="admin_Id" layoutX="82.0" layoutY="18.0" prefHeight="20.0" prefWidth="137.0" style="-fx-background-color: #fff; -fx-background-radius: 3px;" text="{data:inport}" textAlignment="CENTER">
+            <Label fx:id="admin_Id" layoutX="82.0" layoutY="79.0" prefHeight="20.0" prefWidth="137.0" style="-fx-background-color: #fff; -fx-background-radius: 3px;" text="{data:inport}" textAlignment="CENTER">
                <padding>
                   <Insets bottom="1.0" left="10.0" />
                </padding></Label>
-            <Text fill="WHITE" layoutX="14.0" layoutY="57.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Candidate : ">
+            <Text fill="WHITE" layoutX="14.0" layoutY="118.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Candidate : ">
                <font>
                   <Font name="System Bold" size="12.0" />
                </font>
             </Text>
-            <Label fx:id="admin_Ast" layoutX="82.0" layoutY="42.0" prefHeight="20.0" prefWidth="137.0" style="-fx-background-color: #fff; -fx-background-radius: 3px;" text="{data:inport}" textAlignment="CENTER">
+            <Label fx:id="admin_Ast" layoutX="82.0" layoutY="103.0" prefHeight="20.0" prefWidth="137.0" style="-fx-background-color: #fff; -fx-background-radius: 3px;" text="{data:inport}" textAlignment="CENTER">
                <padding>
                   <Insets bottom="1.0" left="10.0" />
                </padding>
             </Label>
          </children>
       </Pane>
+      <Button layoutX="337.0" layoutY="178.0" mnemonicParsing="false" prefHeight="85.0" prefWidth="91.0" style="-fx-background-color: #fff;" text="Home" />
+      <Button layoutX="437.0" layoutY="178.0" mnemonicParsing="false" prefHeight="85.0" prefWidth="91.0" style="-fx-background-color: #fff;" text="Student" />
+      <Button layoutX="536.0" layoutY="178.0" mnemonicParsing="false" prefHeight="85.0" prefWidth="91.0" style="-fx-background-color: #fff;" text="Timetable" />
+      <Button layoutX="337.0" layoutY="333.0" mnemonicParsing="false" prefHeight="85.0" prefWidth="91.0" style="-fx-background-color: #fff;" text="Settings" />
+      <Button layoutX="437.0" layoutY="333.0" mnemonicParsing="false" prefHeight="85.0" prefWidth="91.0" style="-fx-background-color: #fff;" text="Classes" />
+      <Button layoutX="536.0" layoutY="333.0" mnemonicParsing="false" prefHeight="85.0" prefWidth="91.0" style="-fx-background-color: #fff;" text="Update" />
+      <ImageView accessibleText="home" fitHeight="41.0" fitWidth="42.0" layoutX="362.0" layoutY="158.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../image/icons8-home-94.png" />
+         </image>
+      </ImageView>
+      <ImageView accessibleText="home" fitHeight="41.0" fitWidth="42.0" layoutX="561.0" layoutY="158.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../image/icons8-time-48.png" />
+         </image>
+      </ImageView>
+      <ImageView accessibleText="home" fitHeight="41.0" fitWidth="42.0" layoutX="561.0" layoutY="313.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../image/icons8-update-48.png" />
+         </image>
+      </ImageView>
+      <ImageView accessibleText="home" fitHeight="41.0" fitWidth="42.0" layoutX="462.0" layoutY="313.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../image/icons8-class-48.png" />
+         </image>
+      </ImageView>
+      <ImageView accessibleText="home" fitHeight="41.0" fitWidth="42.0" layoutX="362.0" layoutY="313.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../image/icons8-settings-64.png" />
+         </image>
+      </ImageView>
+      <ImageView accessibleText="home" fitHeight="41.0" fitWidth="42.0" layoutX="462.0" layoutY="158.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../image/icons8-student-94.png" />
+         </image>
+      </ImageView>
    </children>
 </AnchorPane>
