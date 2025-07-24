@@ -35,6 +35,12 @@
                   <Font size="11.0" />
                </font>
             </Text>
+            <Button fx:id="logout_btn" layoutX="752.0" layoutY="29.0" mnemonicParsing="false" onAction="#handleLogout" prefHeight="27.0" prefWidth="67.0" style="-fx-background-color: #fff;" text="Logout" />
+            <ImageView accessibleText="home" fitHeight="55.0" fitWidth="31.0" layoutX="729.0" layoutY="27.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../image/icons8-logout.gif" />
+               </image>
+            </ImageView>
          </children>
       </Pane>
       <Pane layoutY="85.0" prefHeight="485.0" prefWidth="234.0" style="-fx-background-color: #183B4E;">

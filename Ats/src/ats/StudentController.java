@@ -4,11 +4,18 @@
  */
 package ats;
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.stage.Stage;
 
 /**
  * FXML Controller class
@@ -21,6 +28,8 @@ public class StudentController implements Initializable {
     private Label std_id;
     @FXML
     private Label std_Ast;
+    @FXML
+    private Button logout_btn;
 
      public void User_Id(String UserId){
         std_id.setText(UserId);
@@ -35,5 +44,21 @@ public class StudentController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
     }    
+
+    @FXML
+    private void handleLogout(ActionEvent event) {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("FXMLDocument.fxml"));
+            Parent root = loader.load();
+
+            Stage stage = (Stage) logout_btn.getScene().getWindow();
+            stage.setScene(new Scene(root));
+            stage.setTitle("Login");
+            stage.show();
+
+    } catch (IOException e) {
+        System.out.println("Logout failed: Couldn't load FXMLDocument.fxml");
+    }
+    }
     
 }
