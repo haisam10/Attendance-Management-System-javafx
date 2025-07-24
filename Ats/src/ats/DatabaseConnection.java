@@ -20,4 +20,21 @@ public class DatabaseConnection {
         }
         return connection;
     }
+    
+    
+        public static Connection getConnection(String url, String user, String pass) {
+        Connection connection;
+        try {
+            connection = DriverManager.getConnection(url, user, pass);
+        } catch (SQLException e) {
+            System.out.println("Error connecting to DB: " + e.getMessage());
+            connection = null;
+        }
+        return connection;
+    }
+
+    // Optional default version
+    public static Connection getDefaultConnection() {
+        return getConnection("jdbc:mysql://localhost:3306/ats_data", "root", "");
+    }
 }

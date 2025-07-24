@@ -16,6 +16,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 
 /**
@@ -33,6 +34,11 @@ public class AdminController implements Initializable {
     private AnchorPane candidate_ast;
     @FXML
     private Button logout_btn;
+    @FXML
+    private Button std_Info;
+    @FXML
+    private Pane admin_All_button;
+    
     public void User_Id(String UserId){
         admin_Id.setText(UserId);
     }
@@ -46,7 +52,27 @@ public class AdminController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
     }    
+    
+     // Student Info
+    @FXML
+    private void handleStdInfo(ActionEvent event) {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("StudentInfo.fxml"));
+            Parent studentInfoRoot = loader.load();
 
+            candidate_ast.getChildren().clear();
+            candidate_ast.getChildren().add(studentInfoRoot);
+
+            AnchorPane.setTopAnchor(studentInfoRoot, 0.0);
+            AnchorPane.setBottomAnchor(studentInfoRoot, 0.0);
+            AnchorPane.setLeftAnchor(studentInfoRoot, 0.0);
+            AnchorPane.setRightAnchor(studentInfoRoot, 0.0);
+
+        } catch (IOException e) {
+            System.out.println("Failed to load StudentInfo.fxml: " + e.getMessage());
+        }
+    }
+    
     @FXML
     private void handleLogout(ActionEvent event) {
         try {

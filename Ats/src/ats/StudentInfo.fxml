@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane id="AnchorPane" prefHeight="485.0" prefWidth="845.0" style="-fx-background-color: #E9E3DF;" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ats.StudentInfoController">
+    <children>
+      <Pane prefHeight="85.0" prefWidth="845.0" style="-fx-background-color: #27548A;">
+         <children>
+            <Text fill="WHITE" layoutX="113.0" layoutY="31.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Shanto-Mariam University of Creative Technology">
+               <font>
+                  <Font name="System Bold" size="20.0" />
+               </font>
+            </Text>
+            <Label layoutX="14.0" layoutY="10.0" prefHeight="65.0" prefWidth="83.0" style="-fx-background-color: #fff; -fx-background-radius: 3px;" />
+            <ImageView fitHeight="51.0" fitWidth="74.0" layoutX="21.0" layoutY="17.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../image/SMUCT%20Logo.png" />
+               </image>
+            </ImageView>
+            <Text fill="WHITE" layoutX="113.0" layoutY="57.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Permanent Campus Plot# 06, Avenue# 06">
+               <font>
+                  <Font size="11.0" />
+               </font>
+            </Text>
+            <Text fill="WHITE" layoutX="113.0" layoutY="71.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Sector# 17/H-1,Uttara, Dhaka-1230, Dhaka 1230">
+               <font>
+                  <Font size="11.0" />
+               </font>
+            </Text>
+            <Button fx:id="logout_btn" layoutX="760.0" layoutY="30.0" mnemonicParsing="false" onAction="#student_panel_back_btn" prefHeight="27.0" prefWidth="67.0" style="-fx-background-color: #fff;" text="Back" />
+            <ImageView accessibleText="home" fitHeight="55.0" fitWidth="31.0" layoutX="741.0" layoutY="30.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../image/icons8-logout.gif" />
+               </image>
+            </ImageView>
+         </children>
+      </Pane>
+      <Pane layoutY="85.0" prefHeight="400.0" prefWidth="234.0" style="-fx-background-color: #183B4E;">
+         <children>
+            <Pane layoutX="7.0" layoutY="222.0" prefHeight="171.0" prefWidth="221.0">
+               <children>
+                  <Button layoutX="15.0" layoutY="15.0" mnemonicParsing="false" onAction="#student_panel_back_btn" prefHeight="31.0" prefWidth="85.0" style="-fx-background-color: #fff;" text="Home" />
+                  <Button fx:id="std_Info" layoutX="113.0" layoutY="16.0" mnemonicParsing="false" onAction="#handleStdInfo" prefHeight="31.0" prefWidth="85.0" style="-fx-background-color: #fff;" text="Student" />
+                  <ImageView accessibleText="home" fitHeight="41.0" fitWidth="31.0" layoutX="2.0" layoutY="16.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../image/icons8-home-94.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView accessibleText="home" fitHeight="31.0" fitWidth="31.0" layoutX="100.0" layoutY="17.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../image/icons8-student-94.png" />
+                     </image>
+                  </ImageView>
+                  <Button fx:id="std_update" layoutX="14.0" layoutY="57.0" mnemonicParsing="false" onAction="#handleStdUpd" prefHeight="31.0" prefWidth="85.0" style="-fx-background-color: #fff;" text="Update" />
+                  <ImageView accessibleText="home" fitHeight="31.0" fitWidth="31.0" layoutX="1.0" layoutY="58.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../image/icons8-update-48.png" />
+                     </image>
+                  </ImageView>
+                  <Button fx:id="std_All_table" layoutX="113.0" layoutY="58.0" mnemonicParsing="false" onAction="#updateStudentInfo" prefHeight="31.0" prefWidth="85.0" style="-fx-background-color: #fff;" text="Table" />
+                  <ImageView accessibleText="home" fitHeight="31.0" fitWidth="31.0" layoutX="100.0" layoutY="59.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../image/icons8-table-48.png" />
+                     </image>
+                  </ImageView>
+               </children>
+            </Pane>
+            <ImageView accessibleText="home" fitHeight="55.0" fitWidth="49.0" layoutX="93.0" layoutY="93.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../image/icons8-id-card.gif" />
+               </image>
+            </ImageView>
+            <Text fill="WHITE" layoutX="30.0" layoutY="171.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Your ID :">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Text>
+            <Label fx:id="admin_Id" layoutX="83.0" layoutY="156.0" prefHeight="20.0" prefWidth="137.0" style="-fx-background-color: #fff; -fx-background-radius: 3px;" text="{data:inport}" textAlignment="CENTER">
+               <padding>
+                  <Insets bottom="1.0" left="10.0" />
+               </padding>
+            </Label>
+            <Text fill="WHITE" layoutX="15.0" layoutY="195.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Candidate : ">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Text>
+            <Label fx:id="admin_Ast" layoutX="83.0" layoutY="180.0" prefHeight="20.0" prefWidth="137.0" style="-fx-background-color: #fff; -fx-background-radius: 3px;" text="{data:inport}" textAlignment="CENTER">
+               <padding>
+                  <Insets bottom="1.0" left="10.0" />
+               </padding>
+            </Label>
+            <Text fill="WHITE" layoutX="31.0" layoutY="59.0" strokeType="OUTSIDE" strokeWidth="0.0" text="STUDENT INFO">
+               <font>
+                  <Font name="System Bold" size="24.0" />
+               </font>
+            </Text>
+         </children>
+      </Pane>
+      <Pane fx:id="std_Info_input" layoutX="273.0" layoutY="107.0" prefHeight="321.0" prefWidth="456.0" visible="false">
+         <children>
+            <Text layoutY="17.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Add Student">
+               <font>
+                  <Font name="System Italic" size="18.0" />
+               </font>
+            </Text>
+            <VBox layoutX="104.0" layoutY="252.0" prefHeight="31.0" prefWidth="221.0" spacing="10">
+               <children>
+                  <Label fx:id="statusLabel" prefHeight="33.0" prefWidth="225.0" textFill="green" />
+               </children>
+            </VBox>
+            <TextField fx:id="studentIdField" layoutX="204.0" layoutY="73.0" promptText="Student ID" />
+            <TextField fx:id="departmentField" layoutX="204.0" layoutY="107.0" promptText="Department" />
+            <TextField fx:id="emailField" layoutX="204.0" layoutY="141.0" promptText="Email" />
+            <TextField fx:id="phoneField" layoutX="204.0" layoutY="176.0" promptText="Phone" />
+            <Button layoutX="159.0" layoutY="216.0" onAction="#saveStudentInfo" style="-fx-background-color: #fff;" text="Save Student Info" />
+            <Text layoutX="113.0" layoutY="56.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Full Neme" />
+            <Text layoutX="113.0" layoutY="90.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Student ID" wrappingWidth="69.326171875" />
+            <Text layoutX="113.0" layoutY="124.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Department" wrappingWidth="69.326171875" />
+            <Text layoutX="113.0" layoutY="158.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Email" wrappingWidth="69.326171875" />
+            <Text layoutX="113.0" layoutY="193.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Phone" wrappingWidth="69.326171875" />
+            <TextField fx:id="nameField" layoutX="204.0" layoutY="39.0" promptText="Name" />
+         </children>
+      </Pane>
+      <Pane fx:id="std_info_update" layoutX="273.0" layoutY="107.0" prefHeight="353.0" prefWidth="426.0" visible="false">
+         <children>
+      <Label layoutY="1.0" prefHeight="27.0" prefWidth="172.0" text="Update Student Info">
+               <font>
+                  <Font name="System Italic" size="18.0" />
+               </font></Label>
+      <TextField fx:id="updateIdField" editable="false" layoutX="150.0" layoutY="40.0" promptText="Student ID" />
+      <TextField fx:id="updateNameField" layoutX="150.0" layoutY="80.0" promptText="Name" />
+      <TextField fx:id="updateDeptField" layoutX="150.0" layoutY="120.0" promptText="Department" />
+      <TextField fx:id="updateEmailField" layoutX="150.0" layoutY="160.0" promptText="Email" />
+      <TextField fx:id="updatePhoneField" layoutX="150.0" layoutY="200.0" promptText="Phone" />
+      <Button layoutX="150.0" layoutY="240.0" onAction="#updateStudentInfo" style="-fx-background-color: #fff;" text="Update Info" />
+      <Button layoutX="250.0" layoutY="240.0" onAction="#backToForm" style="-fx-background-color: #ccc;" text="Back" />
+         </children>
+      </Pane>
+      <Pane fx:id="std_All_Table" layoutX="255.0" layoutY="95.0" prefHeight="373.0" prefWidth="574.0">
+         <children>
+         </children>
+      </Pane>
+    </children>
+</AnchorPane>

@@ -23,7 +23,7 @@ import javafx.stage.Stage;
  * @author mdhhd
  */
 public class StudentController implements Initializable {
-
+    // Show id & Role   
     @FXML
     private Label std_id;
     @FXML

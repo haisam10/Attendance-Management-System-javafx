@@ -70,41 +70,45 @@
             </Label>
          </children>
       </Pane>
-      <Button layoutX="337.0" layoutY="178.0" mnemonicParsing="false" prefHeight="85.0" prefWidth="91.0" style="-fx-background-color: #fff;" text="Home" />
-      <Button layoutX="437.0" layoutY="178.0" mnemonicParsing="false" prefHeight="85.0" prefWidth="91.0" style="-fx-background-color: #fff;" text="Student" />
-      <Button layoutX="536.0" layoutY="178.0" mnemonicParsing="false" prefHeight="85.0" prefWidth="91.0" style="-fx-background-color: #fff;" text="Timetable" />
-      <Button layoutX="337.0" layoutY="333.0" mnemonicParsing="false" prefHeight="85.0" prefWidth="91.0" style="-fx-background-color: #fff;" text="Settings" />
-      <Button layoutX="437.0" layoutY="333.0" mnemonicParsing="false" prefHeight="85.0" prefWidth="91.0" style="-fx-background-color: #fff;" text="Classes" />
-      <Button layoutX="536.0" layoutY="333.0" mnemonicParsing="false" prefHeight="85.0" prefWidth="91.0" style="-fx-background-color: #fff;" text="Update" />
-      <ImageView accessibleText="home" fitHeight="41.0" fitWidth="42.0" layoutX="362.0" layoutY="158.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../image/icons8-home-94.png" />
-         </image>
-      </ImageView>
-      <ImageView accessibleText="home" fitHeight="41.0" fitWidth="42.0" layoutX="561.0" layoutY="158.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../image/icons8-time-48.png" />
-         </image>
-      </ImageView>
-      <ImageView accessibleText="home" fitHeight="41.0" fitWidth="42.0" layoutX="561.0" layoutY="313.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../image/icons8-update-48.png" />
-         </image>
-      </ImageView>
-      <ImageView accessibleText="home" fitHeight="41.0" fitWidth="42.0" layoutX="462.0" layoutY="313.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../image/icons8-class-48.png" />
-         </image>
-      </ImageView>
-      <ImageView accessibleText="home" fitHeight="41.0" fitWidth="42.0" layoutX="362.0" layoutY="313.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../image/icons8-settings-64.png" />
-         </image>
-      </ImageView>
-      <ImageView accessibleText="home" fitHeight="41.0" fitWidth="42.0" layoutX="462.0" layoutY="158.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../image/icons8-student-94.png" />
-         </image>
-      </ImageView>
+      <Pane fx:id="admin_All_button" layoutX="275.0" layoutY="132.0" prefHeight="366.0" prefWidth="511.0">
+         <children>
+            <Button layoutX="27.0" layoutY="67.0" mnemonicParsing="false" prefHeight="85.0" prefWidth="91.0" style="-fx-background-color: #fff;" text="Home" />
+            <ImageView accessibleText="home" fitHeight="41.0" fitWidth="42.0" layoutX="52.0" layoutY="47.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../image/icons8-home-94.png" />
+               </image>
+            </ImageView>
+            <Button layoutX="28.0" layoutY="222.0" mnemonicParsing="false" prefHeight="85.0" prefWidth="91.0" style="-fx-background-color: #fff;" text="Settings" />
+            <ImageView accessibleText="home" fitHeight="41.0" fitWidth="42.0" layoutX="53.0" layoutY="202.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../image/icons8-settings-64.png" />
+               </image>
+            </ImageView>
+            <Button fx:id="std_Info" layoutX="127.0" layoutY="67.0" mnemonicParsing="false" onAction="#handleStdInfo" prefHeight="85.0" prefWidth="91.0" style="-fx-background-color: #fff;" text="Student" />
+            <Button layoutX="226.0" layoutY="67.0" mnemonicParsing="false" prefHeight="85.0" prefWidth="91.0" style="-fx-background-color: #fff;" text="Timetable" />
+            <Button layoutX="127.0" layoutY="222.0" mnemonicParsing="false" prefHeight="85.0" prefWidth="91.0" style="-fx-background-color: #fff;" text="Classes" />
+            <Button layoutX="226.0" layoutY="222.0" mnemonicParsing="false" prefHeight="85.0" prefWidth="91.0" style="-fx-background-color: #fff;" text="Update" />
+            <ImageView accessibleText="home" fitHeight="41.0" fitWidth="42.0" layoutX="251.0" layoutY="47.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../image/icons8-time-48.png" />
+               </image>
+            </ImageView>
+            <ImageView accessibleText="home" fitHeight="41.0" fitWidth="42.0" layoutX="251.0" layoutY="202.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../image/icons8-update-48.png" />
+               </image>
+            </ImageView>
+            <ImageView accessibleText="home" fitHeight="41.0" fitWidth="42.0" layoutX="152.0" layoutY="202.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../image/icons8-class-48.png" />
+               </image>
+            </ImageView>
+            <ImageView accessibleText="home" fitHeight="41.0" fitWidth="42.0" layoutX="152.0" layoutY="47.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../image/icons8-student-94.png" />
+               </image>
+            </ImageView>
+         </children>
+      </Pane>
    </children>
 </AnchorPane>
