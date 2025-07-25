@@ -14,13 +14,15 @@ public class Student {
     private String department;
     private String email;
     private String phone;
+    private String section;
 
-    public Student(String name, String studentId, String department, String email, String phone) {
+    public Student(String name, String studentId, String department, String email, String phone, String section) {
         this.name = name;
         this.studentId = studentId;
         this.department = department;
         this.email = email;
         this.phone = phone;
+        this.section = section;
     }
 
     public String getName() { return name; }
@@ -28,4 +30,5 @@ public class Student {
     public String getDepartment() { return department; }
     public String getEmail() { return email; }
     public String getPhone() { return phone; }
+    public String getSection() { return section; }
 }

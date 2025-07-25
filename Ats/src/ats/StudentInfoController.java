@@ -1,158 +1,145 @@
 package ats;
 
 import java.io.IOException;
-import java.net.URL;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.SQLException;
-import java.util.ResourceBundle;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.control.*;
+import javafx.scene.layout.Pane;
+
+import java.sql.*;
 import javafx.fxml.FXMLLoader;
-import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
-import javafx.scene.control.TextField;
-import javafx.scene.control.cell.PropertyValueFactory;
-import javafx.scene.layout.Pane;
+import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
-public class StudentInfoController implements Initializable {
+public class StudentInfoController {
 
-    @FXML private TextField nameField, studentIdField, departmentField, emailField, phoneField;
-    @FXML private TextField updateIdField, updateNameField, updateDeptField, updateEmailField, updatePhoneField;
-    @FXML private Label statusLabel, admin_Id, admin_Ast;
-    @FXML private Button logout_btn, std_Info, std_update, std_All_table;
-    @FXML private Pane std_Info_input, std_info_update, std_All_Table;
-    @FXML private TableView<Student> studentTable;
-    @FXML private TableColumn<Student, String> colName, colId, colDept, colEmail, colPhone;
+    @FXML
+    private TextField nameField, studentIdField, emailField, phoneField;
+    @FXML
+    private ChoiceBox<String> departmentField, sectionField;
+    @FXML
+    private Label statusLabel;
+
+    @FXML
+    private TextField updateIdField, updateNameField, updateEmailField, updatePhoneField;
+    @FXML
+    private ChoiceBox<String> updateDeptField, updateSectionField;
+
+    @FXML
+    private Pane std_Info_input, std_info_update, std_All_Table;
+    @FXML
+    private TableView<Student> studentTable;
+    @FXML
+    private TableColumn<Student, String> colName, colId, colDept, colEmail, colPhone, colsection;
 
     private ObservableList<Student> studentData = FXCollections.observableArrayList();
 
-    public void User_Id(String UserId) {
-        admin_Id.setText(UserId);
-    }
+    private final String url = "jdbc:mysql://localhost:3306/ats_data";
+    private final String user = "root";
+    private final String password = "";
+    @FXML
+    private Button logout_btn;
+    @FXML
+    private Button std_Info;
+    @FXML
+    private Button std_update;
+    @FXML
+    private Button std_All_table;
+    @FXML
+    private Label admin_Id;
+    @FXML
+    private Label admin_Ast;
+    @FXML
+    private Text section;
+    @FXML
+    private Button upd_info;
 
-    public void Candidate(String selectedRole) {
-        admin_Ast.setText(selectedRole);
-    }
-    // Back to admin page
-        @FXML
-    private void student_panel_back_btn(ActionEvent event) {
-        try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("admin.fxml"));
-            Parent root = loader.load();
-            Stage stage = (Stage) logout_btn.getScene().getWindow();
-            stage.setScene(new Scene(root));
-            stage.setTitle("Login");
-            stage.show();
-        } catch (IOException e) {
-            System.out.println("Logout failed: Couldn't load admin.fxml");
-        }
-    }
-    
-    @Override
-    public void initialize(URL url, ResourceBundle rb) {
-        std_Info_input.setVisible(true);
-        std_info_update.setVisible(false);
-        std_All_Table.setVisible(false);
+    public void initialize() {
+        departmentField.setItems(FXCollections.observableArrayList("CSE", "EEE", "BBA"));
+        sectionField.setItems(FXCollections.observableArrayList("A", "B", "C"));
+        updateDeptField.setItems(FXCollections.observableArrayList("CSE", "EEE", "BBA"));
+        updateSectionField.setItems(FXCollections.observableArrayList("A", "B", "C"));
 
-        colName.setCellValueFactory(new PropertyValueFactory<>("name"));
-        colId.setCellValueFactory(new PropertyValueFactory<>("studentId"));
-        colDept.setCellValueFactory(new PropertyValueFactory<>("department"));
-        colEmail.setCellValueFactory(new PropertyValueFactory<>("email"));
-        colPhone.setCellValueFactory(new PropertyValueFactory<>("phone"));
+        colName.setCellValueFactory(cellData -> new javafx.beans.property.SimpleStringProperty(cellData.getValue().getName()));
+        colId.setCellValueFactory(cellData -> new javafx.beans.property.SimpleStringProperty(cellData.getValue().getStudentId()));
+        colDept.setCellValueFactory(cellData -> new javafx.beans.property.SimpleStringProperty(cellData.getValue().getDepartment()));
+        colEmail.setCellValueFactory(cellData -> new javafx.beans.property.SimpleStringProperty(cellData.getValue().getEmail()));
+        colPhone.setCellValueFactory(cellData -> new javafx.beans.property.SimpleStringProperty(cellData.getValue().getPhone()));
+        colsection.setCellValueFactory(cellData -> new javafx.beans.property.SimpleStringProperty(cellData.getValue().getSection()));
+
+        studentTable.setItems(studentData);
     }
 
     @FXML
     private void saveStudentInfo() {
         String name = nameField.getText();
-        String studentId = studentIdField.getText();
-        String dept = departmentField.getText();
+        String id = studentIdField.getText();
+        String dept = departmentField.getValue();
+        String section = sectionField.getValue();
         String email = emailField.getText();
         String phone = phoneField.getText();
 
-        if (name.isEmpty() || studentId.isEmpty() || dept.isEmpty() || email.isEmpty() || phone.isEmpty()) {
-            statusLabel.setText("❌ Please fill all fields.");
-            return;
-        }
+        String query = "INSERT INTO student_info (name, student_id, department, section, email, phone) VALUES (?, ?, ?, ?, ?, ?)";
 
-        String sql = "INSERT INTO student_info (name, student_id, department, email, phone) VALUES (?, ?, ?, ?, ?)";
+        try (Connection con = DriverManager.getConnection(url, user, password); PreparedStatement stmt = con.prepareStatement(query)) {
 
-        try (Connection conn = DatabaseConnection.getDefaultConnection();
-             PreparedStatement pstmt = conn.prepareStatement(sql)) {
+            stmt.setString(1, name);
+            stmt.setString(2, id);
+            stmt.setString(3, dept);
+            stmt.setString(4, section);
+            stmt.setString(5, email);
+            stmt.setString(6, phone);
 
-            pstmt.setString(1, name);
-            pstmt.setString(2, studentId);
-            pstmt.setString(3, dept);
-            pstmt.setString(4, email);
-            pstmt.setString(5, phone);
-
-            int rowsInserted = pstmt.executeUpdate();
+            int rowsInserted = stmt.executeUpdate();
             if (rowsInserted > 0) {
-                statusLabel.setText("✅ Student info saved successfully.");
-                clearFields();
+                statusLabel.setText("Student added successfully.");
+                show_Std_Table();
             }
 
         } catch (SQLException e) {
-            statusLabel.setText("❌ Database error: " + e.getMessage());
+            statusLabel.setText("Error: " + e.getMessage());
+            e.printStackTrace();
         }
     }
 
-    private void clearFields() {
-        nameField.clear();
-        studentIdField.clear();        
-        departmentField.clear();
-        emailField.clear();
-        phoneField.clear();
-    }
-    private void updateStudentInfo(ActionEvent event) {
-        System.out.println("Update button clicked");
-}
-
-
     @FXML
-    private void handleStdInfo(ActionEvent event) {
-        std_Info_input.setVisible(true);
-        std_info_update.setVisible(false);
-        std_All_Table.setVisible(false);
-    }
+    private void upd_info_Btn() {
+        String id = updateIdField.getText();
+        String name = updateNameField.getText();
+        String dept = updateDeptField.getValue();
+        String section = updateSectionField.getValue();
+        String email = updateEmailField.getText();
+        String phone = updatePhoneField.getText();
 
-    @FXML
-    private void handleStdUpd(ActionEvent event) {
-        std_info_update.setVisible(true);
-        std_Info_input.setVisible(false);
-        std_All_Table.setVisible(false);
-    }
+        String query = "UPDATE student_info SET name=?, department=?, section=?, email=?, phone=? WHERE student_id=?";
 
-    @FXML
-    private void show_Std_Table(ActionEvent event) {
-        std_All_Table.setVisible(true);
-        std_Info_input.setVisible(false);
-        std_info_update.setVisible(false);
-        loadStudentData();
+        try (Connection con = DriverManager.getConnection(url, user, password); PreparedStatement stmt = con.prepareStatement(query)) {
+
+            stmt.setString(1, name);
+            stmt.setString(2, dept);
+            stmt.setString(3, section);
+            stmt.setString(4, email);
+            stmt.setString(5, phone);
+            stmt.setString(6, id);
+
+            stmt.executeUpdate();
+            show_Std_Table();
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
     }
 
     @FXML
-    private void backToForm(ActionEvent event) {
-        std_Info_input.setVisible(true);
-        std_info_update.setVisible(false);
-        std_All_Table.setVisible(false);
-    }
-
-    private void loadStudentData() {
+    private void show_Std_Table() {
         studentData.clear();
-        String sql = "SELECT name, student_id, department, email, phone FROM student_info";
 
-        try (Connection conn = DatabaseConnection.getDefaultConnection();
-             PreparedStatement pstmt = conn.prepareStatement(sql);
-             var rs = pstmt.executeQuery()) {
+        String query = "SELECT * FROM student_info";
+
+        try (Connection con = DriverManager.getConnection(url, user, password); Statement stmt = con.createStatement(); ResultSet rs = stmt.executeQuery(query)) {
 
             while (rs.next()) {
                 studentData.add(new Student(
@@ -160,14 +147,55 @@ public class StudentInfoController implements Initializable {
                         rs.getString("student_id"),
                         rs.getString("department"),
                         rs.getString("email"),
-                        rs.getString("phone")
+                        rs.getString("phone"),
+                        rs.getString("section")
                 ));
             }
 
-            studentTable.setItems(studentData);
+            std_Info_input.setVisible(false);
+            std_info_update.setVisible(false);
+            std_All_Table.setVisible(true);
 
         } catch (SQLException e) {
-            System.out.println("Student data load করতে সমস্যা: " + e.getMessage());
+            e.printStackTrace();
         }
+    }
+
+    @FXML
+    private void handleStdInfo() {
+        std_Info_input.setVisible(true);
+        std_info_update.setVisible(false);
+        std_All_Table.setVisible(false);
+    }
+
+    @FXML
+    private void handleStdUpd() {
+        std_Info_input.setVisible(false);
+        std_info_update.setVisible(true);
+        std_All_Table.setVisible(false);
+    }
+
+    @FXML
+    private void student_panel_back_btn() {
+//        std_Info_input.setVisible(false);
+//        std_info_update.setVisible(false);
+//        std_All_Table.setVisible(false);
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("admin.fxml"));
+        Parent root = loader.load();
+
+        Stage stage = (Stage) logout_btn.getScene().getWindow(); // event ছাড়া
+        stage.setScene(new Scene(root));
+        stage.setTitle("Dashboard");
+        stage.show();
+
+        } catch (IOException e) {
+            System.out.println("Failed to load dashboard.fxml: " + e.getMessage());
+        }
+    }
+
+    @FXML
+    private void backToForm() {
+        handleStdInfo();
     }
 }

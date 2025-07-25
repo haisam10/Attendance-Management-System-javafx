@@ -15,6 +15,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 
 /**
@@ -31,6 +32,12 @@ public class TeacherController implements Initializable {
     private Button logout_btn;
     @FXML
     private Label tec_Id;
+    @FXML
+    private Button tec_Attendance;
+    @FXML
+    private Button tec_View_Attendance;
+    @FXML
+    private Button tec_Student_Info;
 
     
     @Override
@@ -60,4 +67,41 @@ public class TeacherController implements Initializable {
         System.out.println("Logout failed: Couldn't load FXMLDocument.fxml");
     }
     }
+
+    @FXML
+    private void tec_Attendance_Btn(ActionEvent event) {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("AttendanceView.fxml"));
+            Parent root = loader.load();
+
+            Stage attendanceStage = new Stage();
+            attendanceStage.setTitle("Attendance View");
+            attendanceStage.setScene(new Scene(root));
+            attendanceStage.show();
+
+        } catch (IOException e) {
+            System.out.println("Failed to open AttendanceView.fxml: " + e.getMessage());
+        }
+    }
+
+    @FXML
+    private void tec_View_Attendance_Btn(ActionEvent event) {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("TeacherAttendanceView.fxml"));
+            Parent root = loader.load();
+
+            Stage attendanceStage = new Stage();
+            attendanceStage.setTitle("TeacherAttendanceView View");
+            attendanceStage.setScene(new Scene(root));
+            attendanceStage.show();
+
+        } catch (IOException e) {
+            System.out.println("Failed to open TeacherAttendanceView.fxml: " + e.getMessage());
+        }
+    }
+
+    @FXML
+    private void tec_Student_Info_Btn(ActionEvent event) {
+    }
+
 }

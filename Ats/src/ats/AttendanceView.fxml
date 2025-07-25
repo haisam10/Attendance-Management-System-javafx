@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="ats.AttendanceViewController" prefHeight="600.0" prefWidth="800.0">
+    <children>
+        <Pane prefWidth="800" prefHeight="600">
+            <children>
+                <VBox spacing="20" layoutX="20" layoutY="20">
+                    <padding>
+                        <Insets top="20" right="20" bottom="20" left="20"/>
+                    </padding>
+                    <children>
+
+                        <HBox spacing="10">
+                            <children>
+                                <Label text="Date:"/>
+                                <DatePicker fx:id="datePicker"/>
+
+                                <Label text="Department:"/>
+                                <ComboBox fx:id="deptCombo" prefWidth="120"/>
+
+                                <Label text="Section:"/>
+                                <ComboBox fx:id="sectionCombo" prefWidth="80"/>
+
+                                <Button fx:id="loadStudentsBtn" text="Load Students" onAction="#loadStudents"/>
+                            </children>
+                        </HBox>
+                        <ScrollPane fitToWidth="true" prefHeight="350">
+                            <content>
+                                <VBox fx:id="studentListVBox" spacing="8">
+                                    <padding>
+                                        <Insets top="10" right="10" bottom="10" left="10"/>
+                                    </padding>
+                                </VBox>
+                            </content>
+                        </ScrollPane>
+
+                        <Button fx:id="submitBtn" text="Submit Attendance" onAction="#submitAttendance" maxWidth="200"/>
+                    </children>
+                </VBox>
+            </children>
+        </Pane>
+    </children>
+</AnchorPane>

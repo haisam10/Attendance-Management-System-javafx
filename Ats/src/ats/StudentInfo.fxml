@@ -2,6 +2,7 @@
 
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ChoiceBox?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
@@ -14,9 +15,9 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane id="AnchorPane" prefHeight="545.0" prefWidth="845.0" style="-fx-background-color: #E9E3DF;" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ats.StudentInfoController">
+<AnchorPane id="AnchorPane" prefHeight="579.0" prefWidth="856.0" style="-fx-background-color: #E9E3DF;" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ats.StudentInfoController">
     <children>
-      <Pane prefHeight="85.0" prefWidth="845.0" style="-fx-background-color: #27548A;">
+      <Pane prefHeight="85.0" prefWidth="858.0" style="-fx-background-color: #27548A;">
          <children>
             <Text fill="WHITE" layoutX="113.0" layoutY="31.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Shanto-Mariam University of Creative Technology">
                <font>
@@ -39,8 +40,8 @@
                   <Font size="11.0" />
                </font>
             </Text>
-            <Button fx:id="logout_btn" layoutX="760.0" layoutY="30.0" mnemonicParsing="false" onAction="#student_panel_back_btn" prefHeight="27.0" prefWidth="67.0" style="-fx-background-color: #fff;" text="Back" />
-            <ImageView accessibleText="home" fitHeight="55.0" fitWidth="31.0" layoutX="741.0" layoutY="30.0" pickOnBounds="true" preserveRatio="true">
+            <Button fx:id="logout_btn" layoutX="768.0" layoutY="30.0" mnemonicParsing="false" onAction="#student_panel_back_btn" prefHeight="27.0" prefWidth="67.0" style="-fx-background-color: #fff;" text="Back" />
+            <ImageView accessibleText="home" fitHeight="55.0" fitWidth="31.0" layoutX="749.0" layoutY="30.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../image/icons8-logout.gif" />
                </image>
@@ -60,7 +61,7 @@
                   </ImageView>
                   <ImageView accessibleText="home" fitHeight="31.0" fitWidth="31.0" layoutX="98.0" layoutY="17.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../image/icons8-student-94.png" />
+                        <Image url="@../image/icons8-add-user-male-skin-type-7-48.png" />
                      </image>
                   </ImageView>
                   <Button fx:id="std_update" layoutX="14.0" layoutY="57.0" mnemonicParsing="false" onAction="#handleStdUpd" prefHeight="31.0" prefWidth="85.0" style="-fx-background-color: #fff;" text="Update" />
@@ -109,32 +110,34 @@
             </Text>
          </children>
       </Pane>
-      <Pane fx:id="std_Info_input" layoutX="273.0" layoutY="107.0" prefHeight="321.0" prefWidth="456.0" visible="false">
+      <Pane fx:id="std_Info_input" layoutX="273.0" layoutY="107.0" prefHeight="408.0" prefWidth="456.0" visible="false">
          <children>
             <Text layoutY="17.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Add Student">
                <font>
                   <Font name="System Italic" size="18.0" />
                </font>
             </Text>
-            <VBox layoutX="104.0" layoutY="252.0" prefHeight="31.0" prefWidth="221.0" spacing="10">
+            <VBox layoutX="103.0" layoutY="351.0" prefHeight="31.0" prefWidth="221.0" spacing="10">
                <children>
                   <Label fx:id="statusLabel" prefHeight="33.0" prefWidth="225.0" textFill="green" />
                </children>
             </VBox>
             <TextField fx:id="studentIdField" layoutX="204.0" layoutY="73.0" promptText="Student ID" />
-            <TextField fx:id="departmentField" layoutX="204.0" layoutY="107.0" promptText="Department" />
-            <TextField fx:id="emailField" layoutX="204.0" layoutY="141.0" promptText="Email" />
-            <TextField fx:id="phoneField" layoutX="204.0" layoutY="176.0" promptText="Phone" />
-            <Button layoutX="159.0" layoutY="216.0" onAction="#saveStudentInfo" style="-fx-background-color: #fff;" text="Save Student Info" />
+            <TextField fx:id="emailField" layoutX="204.0" layoutY="174.0" promptText="Email" />
+            <TextField fx:id="phoneField" layoutX="204.0" layoutY="209.0" promptText="Phone" />
+            <Button layoutX="159.0" layoutY="305.0" onAction="#saveStudentInfo" style="-fx-background-color: #fff;" text="Save Student Info" />
             <Text layoutX="113.0" layoutY="56.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Full Neme" />
             <Text layoutX="113.0" layoutY="90.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Student ID" wrappingWidth="69.326171875" />
             <Text layoutX="113.0" layoutY="124.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Department" wrappingWidth="69.326171875" />
-            <Text layoutX="113.0" layoutY="158.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Email" wrappingWidth="69.326171875" />
-            <Text layoutX="113.0" layoutY="193.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Phone" wrappingWidth="69.326171875" />
+            <Text layoutX="113.0" layoutY="191.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Email" wrappingWidth="69.326171875" />
+            <Text layoutX="113.0" layoutY="226.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Phone" wrappingWidth="69.326171875" />
             <TextField fx:id="nameField" layoutX="204.0" layoutY="39.0" promptText="Name" />
+            <ChoiceBox fx:id="sectionField" layoutX="203.0" layoutY="143.0" prefWidth="150.0" />
+            <Text fx:id="section" layoutX="113.0" layoutY="158.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Section" wrappingWidth="69.326171875" />
+            <ChoiceBox fx:id="departmentField" layoutX="203.0" layoutY="107.0" prefWidth="150.0" />
          </children>
       </Pane>
-      <Pane fx:id="std_info_update" layoutX="273.0" layoutY="107.0" prefHeight="353.0" prefWidth="426.0" visible="false">
+      <Pane fx:id="std_info_update" layoutX="273.0" layoutY="107.0" prefHeight="402.0" prefWidth="426.0" visible="false">
          <children>
       <Label layoutY="1.0" prefHeight="27.0" prefWidth="172.0" text="Update Student Info">
                <font>
@@ -142,22 +145,30 @@
                </font></Label>
       <TextField fx:id="updateIdField" layoutX="150.0" layoutY="40.0" promptText="Student ID" />
       <TextField fx:id="updateNameField" layoutX="150.0" layoutY="80.0" promptText="Name" />
-      <TextField fx:id="updateDeptField" layoutX="150.0" layoutY="120.0" promptText="Department" />
-      <TextField fx:id="updateEmailField" layoutX="150.0" layoutY="160.0" promptText="Email" />
-      <TextField fx:id="updatePhoneField" layoutX="150.0" layoutY="200.0" promptText="Phone" />
-      <Button layoutX="150.0" layoutY="240.0" style="-fx-background-color: #fff;" text="Update Info" />
-      <Button layoutX="250.0" layoutY="240.0" onAction="#backToForm" style="-fx-background-color: #ccc;" text="Back" />
+      <TextField fx:id="updateEmailField" layoutX="150.0" layoutY="201.0" promptText="Email" />
+      <TextField fx:id="updatePhoneField" layoutX="150.0" layoutY="241.0" promptText="Phone" />
+      <Button fx:id="upd_info" layoutX="154.0" layoutY="300.0" onAction="#upd_info_Btn" style="-fx-background-color: #fff;" text="Update Info" />
+      <Button layoutX="254.0" layoutY="300.0" onAction="#backToForm" style="-fx-background-color: #ccc;" text="Back" />
+            <Text layoutX="54.0" layoutY="57.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Student ID" />
+            <Text layoutX="54.0" layoutY="97.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Student Name" />
+            <Text layoutX="54.0" layoutY="137.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Department" />
+            <Text layoutX="54.0" layoutY="218.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Email" />
+            <Text layoutX="54.0" layoutY="258.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Phone" />
+            <ChoiceBox fx:id="updateDeptField" layoutX="149.0" layoutY="120.0" prefWidth="150.0" />
+            <Text layoutX="55.0" layoutY="176.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Section" />
+            <ChoiceBox fx:id="updateSectionField" layoutX="149.0" layoutY="159.0" prefWidth="150.0" />
          </children>
       </Pane>
-      <Pane fx:id="std_All_Table" layoutX="257.0" layoutY="126.0" prefHeight="387.0" prefWidth="574.0">
+      <Pane fx:id="std_All_Table" layoutX="235.0" layoutY="124.0" prefHeight="387.0" prefWidth="620.0">
     <children>
-        <TableView fx:id="studentTable" layoutX="10.0" layoutY="29.0" prefHeight="350.0" prefWidth="560.0">
+        <TableView fx:id="studentTable" layoutX="10.0" layoutY="29.0" prefHeight="350.0" prefWidth="600.0">
             <columns>
-                <TableColumn fx:id="colName" prefWidth="100.0" text="Name" />
-                <TableColumn fx:id="colId" prefWidth="100.0" text="Student ID" />
-                <TableColumn fx:id="colDept" prefWidth="100.0" text="Department" />
-                <TableColumn fx:id="colEmail" prefWidth="150.0" text="Email" />
-                <TableColumn fx:id="colPhone" prefWidth="100.0" text="Phone" />
+                <TableColumn fx:id="colName" prefWidth="123.0" text="Name" />
+                <TableColumn fx:id="colId" prefWidth="97.0" text="Student ID" />
+                <TableColumn fx:id="colDept" prefWidth="87.0" text="Department" />
+                <TableColumn fx:id="colEmail" prefWidth="122.0" text="Email" />
+                <TableColumn fx:id="colPhone" prefWidth="99.0" text="Phone" />
+                  <TableColumn fx:id="colsection" prefWidth="65.0" text="Section" />
             </columns>
         </TableView>
             <Text layoutX="10.0" layoutY="11.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Student All Table">

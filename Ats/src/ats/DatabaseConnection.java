@@ -32,7 +32,20 @@ public class DatabaseConnection {
         }
         return connection;
     }
+public class DBConnector {
 
+    public static Connection getConnection() {
+        try {
+            String url = "jdbc:mysql://localhost:3306/ats_data";
+            String user = "root";
+            String password = ""; // if needed
+            return DriverManager.getConnection(url, user, password);
+        } catch (SQLException e) {
+            System.out.println("Error connecting to DB: " + e.getMessage());
+            return null;
+        }
+    }
+}
     // Optional default version
     public static Connection getDefaultConnection() {
         return getConnection("jdbc:mysql://localhost:3306/ats_data", "root", "");

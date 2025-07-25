@@ -77,6 +77,32 @@
             </ImageView>
          </children>
       </Pane>
-      <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Text" />
+      <Pane layoutX="319.0" layoutY="263.0" prefHeight="149.0" prefWidth="365.0">
+         <children>
+            <Button fx:id="tec_Attendance" layoutX="31.0" layoutY="71.0" mnemonicParsing="false" onAction="#tec_Attendance_Btn" prefHeight="44.0" prefWidth="92.0" style="-fx-background-color: #fff;" text="Attendance" />
+            <ImageView accessibleText="home" fitHeight="44.0" fitWidth="43.0" layoutX="56.0" layoutY="32.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../image/icons8-registration-skin-type-7-48.png" />
+               </image>
+            </ImageView>
+            <Button fx:id="tec_View_Attendance" layoutX="140.0" layoutY="71.0" mnemonicParsing="false" onAction="#tec_View_Attendance_Btn" prefHeight="44.0" prefWidth="92.0" style="-fx-background-color: #fff;" text="View Attendance" />
+            <ImageView accessibleText="home" fitHeight="44.0" fitWidth="43.0" layoutX="165.0" layoutY="32.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../image/icons8-find-user-male-skin-type-7-48.png" />
+               </image>
+            </ImageView>
+            <Button fx:id="tec_Student_Info" layoutX="247.0" layoutY="71.0" mnemonicParsing="false" onAction="#tec_Student_Info_Btn" prefHeight="44.0" prefWidth="92.0" style="-fx-background-color: #fff;" text="Student Info" />
+            <ImageView accessibleText="home" fitHeight="44.0" fitWidth="43.0" layoutX="272.0" layoutY="32.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../image/icons8-add-user-male-skin-type-7-48.png" />
+               </image>
+            </ImageView>
+         </children>
+      </Pane>
+      <ImageView accessibleText="home" fitHeight="311.0" fitWidth="212.0" layoutX="372.0" layoutY="80.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../image/Teacher%20in%20Classroom.gif" />
+         </image>
+      </ImageView>
    </children>
 </AnchorPane>
