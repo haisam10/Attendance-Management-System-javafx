@@ -14,7 +14,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane id="AnchorPane" prefHeight="485.0" prefWidth="845.0" style="-fx-background-color: #E9E3DF;" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ats.StudentInfoController">
+<AnchorPane id="AnchorPane" prefHeight="545.0" prefWidth="845.0" style="-fx-background-color: #E9E3DF;" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ats.StudentInfoController">
     <children>
       <Pane prefHeight="85.0" prefWidth="845.0" style="-fx-background-color: #27548A;">
          <children>
@@ -47,9 +47,9 @@
             </ImageView>
          </children>
       </Pane>
-      <Pane layoutY="85.0" prefHeight="400.0" prefWidth="234.0" style="-fx-background-color: #183B4E;">
+      <Pane layoutY="85.0" prefHeight="494.0" prefWidth="234.0" style="-fx-background-color: #183B4E;">
          <children>
-            <Pane layoutX="7.0" layoutY="222.0" prefHeight="171.0" prefWidth="221.0">
+            <Pane layoutX="7.0" layoutY="262.0" prefHeight="156.0" prefWidth="221.0">
                <children>
                   <Button layoutX="15.0" layoutY="15.0" mnemonicParsing="false" onAction="#student_panel_back_btn" prefHeight="31.0" prefWidth="85.0" style="-fx-background-color: #fff;" text="Home" />
                   <Button fx:id="std_Info" layoutX="113.0" layoutY="16.0" mnemonicParsing="false" onAction="#handleStdInfo" prefHeight="31.0" prefWidth="85.0" style="-fx-background-color: #fff;" text="Add student" textAlignment="RIGHT" />
@@ -140,7 +140,7 @@
                <font>
                   <Font name="System Italic" size="18.0" />
                </font></Label>
-      <TextField fx:id="updateIdField" editable="false" layoutX="150.0" layoutY="40.0" promptText="Student ID" />
+      <TextField fx:id="updateIdField" layoutX="150.0" layoutY="40.0" promptText="Student ID" />
       <TextField fx:id="updateNameField" layoutX="150.0" layoutY="80.0" promptText="Name" />
       <TextField fx:id="updateDeptField" layoutX="150.0" layoutY="120.0" promptText="Department" />
       <TextField fx:id="updateEmailField" layoutX="150.0" layoutY="160.0" promptText="Email" />
@@ -149,9 +149,9 @@
       <Button layoutX="250.0" layoutY="240.0" onAction="#backToForm" style="-fx-background-color: #ccc;" text="Back" />
          </children>
       </Pane>
-      <Pane fx:id="std_All_Table" layoutX="255.0" layoutY="95.0" prefHeight="383.0" prefWidth="574.0">
+      <Pane fx:id="std_All_Table" layoutX="257.0" layoutY="126.0" prefHeight="387.0" prefWidth="574.0">
     <children>
-        <TableView fx:id="studentTable" layoutX="10.0" layoutY="21.0" prefHeight="350.0" prefWidth="560.0">
+        <TableView fx:id="studentTable" layoutX="10.0" layoutY="29.0" prefHeight="350.0" prefWidth="560.0">
             <columns>
                 <TableColumn fx:id="colName" prefWidth="100.0" text="Name" />
                 <TableColumn fx:id="colId" prefWidth="100.0" text="Student ID" />
