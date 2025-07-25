@@ -30,6 +30,8 @@ public class StudentController implements Initializable {
     private Label std_Ast;
     @FXML
     private Button logout_btn;
+    @FXML
+    private Button check_Attendance;
 
      public void User_Id(String UserId){
         std_id.setText(UserId);
@@ -49,6 +51,22 @@ public class StudentController implements Initializable {
     private void handleLogout(ActionEvent event) {
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("FXMLDocument.fxml"));
+            Parent root = loader.load();
+
+            Stage stage = (Stage) logout_btn.getScene().getWindow();
+            stage.setScene(new Scene(root));
+            stage.setTitle("Login");
+            stage.show();
+
+    } catch (IOException e) {
+        System.out.println("Logout failed: Couldn't load FXMLDocument.fxml");
+    }
+    }
+
+    @FXML
+    private void check_Attendance_Btn(ActionEvent event) {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("StudentAttendanceCheck.fxml"));
             Parent root = loader.load();
 
             Stage stage = (Stage) logout_btn.getScene().getWindow();

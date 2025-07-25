@@ -1,24 +1,18 @@
 package ats;
 
-import ats.DatabaseConnection.DBConnector;
 import java.net.URL;
-import java.sql.Connection;
-import java.sql.Date;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
+import java.sql.*;
 import java.time.LocalDate;
 import java.util.ResourceBundle;
 import javafx.beans.property.*;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
-import javafx.fxml.FXML;
-import javafx.fxml.Initializable;
+import javafx.fxml.*;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.CheckBoxTableCell;
-import javafx.scene.control.cell.PropertyValueFactory;
 
-public class TeacherAttendanceViewController implements Initializable {
+public class TeacherAttendanceView implements Initializable {
 
     @FXML private DatePicker attendanceDatePicker;
     @FXML private ComboBox<String> sectionComboBox;
@@ -30,12 +24,11 @@ public class TeacherAttendanceViewController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        // Section values
         sectionComboBox.setItems(FXCollections.observableArrayList("A", "B", "C", "D"));
 
-        // Table columns mapping
-        studentIdCol.setCellValueFactory(new PropertyValueFactory<>("studentId"));
-        studentNameCol.setCellValueFactory(new PropertyValueFactory<>("studentName"));
+        studentIdCol.setCellValueFactory(data -> new SimpleStringProperty(data.getValue().getStudentId()));
+        studentNameCol.setCellValueFactory(data -> new SimpleStringProperty(data.getValue().getStudentName()));
+
         statusCol.setCellValueFactory(cellData -> cellData.getValue().statusProperty());
         statusCol.setCellFactory(CheckBoxTableCell.forTableColumn(statusCol));
     }
@@ -46,8 +39,7 @@ public class TeacherAttendanceViewController implements Initializable {
         String selectedSection = sectionComboBox.getValue();
 
         if (selectedDate == null || selectedSection == null) {
-            Alert alert = new Alert(Alert.AlertType.WARNING, "Please select both date and section.");
-            alert.show();
+            new Alert(Alert.AlertType.WARNING, "Please select both date and section.").show();
             return;
         }
 
@@ -55,6 +47,10 @@ public class TeacherAttendanceViewController implements Initializable {
 
         try {
             Connection conn = DBConnector.getConnection();
+            if (conn == null) {
+                new Alert(Alert.AlertType.ERROR, "Database connection failed!").show();
+                return;
+            }
 
             String sql = "SELECT student_id, student_name, status FROM attendance WHERE date = ? AND section = ?";
             PreparedStatement ps = conn.prepareStatement(sql);
@@ -71,13 +67,14 @@ public class TeacherAttendanceViewController implements Initializable {
             }
 
             attendanceTable.setItems(attendanceList);
+            conn.close();
 
-        } catch (Exception e) {
+        } catch (SQLException e) {
             e.printStackTrace();
+            new Alert(Alert.AlertType.ERROR, "Failed to load attendance!").show();
         }
     }
 
-    // Model class for AttendanceRecord
     public static class AttendanceRecord {
         private final SimpleStringProperty studentId;
         private final SimpleStringProperty studentName;
@@ -92,9 +89,7 @@ public class TeacherAttendanceViewController implements Initializable {
         public String getStudentId() { return studentId.get(); }
         public String getStudentName() { return studentName.get(); }
         public boolean getStatus() { return status.get(); }
-
         public void setStatus(boolean status) { this.status.set(status); }
-
         public BooleanProperty statusProperty() { return status; }
     }
 }

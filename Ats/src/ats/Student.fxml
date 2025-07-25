@@ -78,5 +78,10 @@
             <Image url="@../image/undraw_learning-sketchingsh.png" />
          </image>
       </ImageView>
+      <Pane layoutX="171.0" layoutY="209.0" prefHeight="200.0" prefWidth="397.0">
+         <children>
+            <Button fx:id="check_Attendance" layoutX="49.0" layoutY="25.0" mnemonicParsing="false" onAction="#check_Attendance_Btn" prefHeight="49.0" prefWidth="178.0" text="Check Attendance" />
+         </children>
+      </Pane>
    </children>
 </AnchorPane>
