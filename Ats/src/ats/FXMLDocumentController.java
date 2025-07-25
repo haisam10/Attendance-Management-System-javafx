@@ -118,7 +118,7 @@ public class FXMLDocumentController implements Initializable {
             preparedStatement.setString(1, id);
             preparedStatement.setString(2, pass);
             preparedStatement.setString(3, role);
-
+            
             ResultSet resultSet = preparedStatement.executeQuery();
             return resultSet.next(); // Match found
 

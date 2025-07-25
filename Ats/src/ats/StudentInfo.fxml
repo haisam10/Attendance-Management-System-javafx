@@ -3,6 +3,8 @@
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
@@ -50,13 +52,13 @@
             <Pane layoutX="7.0" layoutY="222.0" prefHeight="171.0" prefWidth="221.0">
                <children>
                   <Button layoutX="15.0" layoutY="15.0" mnemonicParsing="false" onAction="#student_panel_back_btn" prefHeight="31.0" prefWidth="85.0" style="-fx-background-color: #fff;" text="Home" />
-                  <Button fx:id="std_Info" layoutX="113.0" layoutY="16.0" mnemonicParsing="false" onAction="#handleStdInfo" prefHeight="31.0" prefWidth="85.0" style="-fx-background-color: #fff;" text="Student" />
+                  <Button fx:id="std_Info" layoutX="113.0" layoutY="16.0" mnemonicParsing="false" onAction="#handleStdInfo" prefHeight="31.0" prefWidth="85.0" style="-fx-background-color: #fff;" text="Add student" textAlignment="RIGHT" />
                   <ImageView accessibleText="home" fitHeight="41.0" fitWidth="31.0" layoutX="2.0" layoutY="16.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@../image/icons8-home-94.png" />
                      </image>
                   </ImageView>
-                  <ImageView accessibleText="home" fitHeight="31.0" fitWidth="31.0" layoutX="100.0" layoutY="17.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView accessibleText="home" fitHeight="31.0" fitWidth="31.0" layoutX="98.0" layoutY="17.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@../image/icons8-student-94.png" />
                      </image>
@@ -67,7 +69,7 @@
                         <Image url="@../image/icons8-update-48.png" />
                      </image>
                   </ImageView>
-                  <Button fx:id="std_All_table" layoutX="113.0" layoutY="58.0" mnemonicParsing="false" onAction="#updateStudentInfo" prefHeight="31.0" prefWidth="85.0" style="-fx-background-color: #fff;" text="Table" />
+                  <Button fx:id="std_All_table" layoutX="113.0" layoutY="58.0" mnemonicParsing="false" onAction="#show_Std_Table" prefHeight="31.0" prefWidth="85.0" style="-fx-background-color: #fff;" text="Table" />
                   <ImageView accessibleText="home" fitHeight="31.0" fitWidth="31.0" layoutX="100.0" layoutY="59.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@../image/icons8-table-48.png" />
@@ -143,13 +145,27 @@
       <TextField fx:id="updateDeptField" layoutX="150.0" layoutY="120.0" promptText="Department" />
       <TextField fx:id="updateEmailField" layoutX="150.0" layoutY="160.0" promptText="Email" />
       <TextField fx:id="updatePhoneField" layoutX="150.0" layoutY="200.0" promptText="Phone" />
-      <Button layoutX="150.0" layoutY="240.0" onAction="#updateStudentInfo" style="-fx-background-color: #fff;" text="Update Info" />
+      <Button layoutX="150.0" layoutY="240.0" style="-fx-background-color: #fff;" text="Update Info" />
       <Button layoutX="250.0" layoutY="240.0" onAction="#backToForm" style="-fx-background-color: #ccc;" text="Back" />
          </children>
       </Pane>
-      <Pane fx:id="std_All_Table" layoutX="255.0" layoutY="95.0" prefHeight="373.0" prefWidth="574.0">
-         <children>
-         </children>
-      </Pane>
+      <Pane fx:id="std_All_Table" layoutX="255.0" layoutY="95.0" prefHeight="383.0" prefWidth="574.0">
+    <children>
+        <TableView fx:id="studentTable" layoutX="10.0" layoutY="21.0" prefHeight="350.0" prefWidth="560.0">
+            <columns>
+                <TableColumn fx:id="colName" prefWidth="100.0" text="Name" />
+                <TableColumn fx:id="colId" prefWidth="100.0" text="Student ID" />
+                <TableColumn fx:id="colDept" prefWidth="100.0" text="Department" />
+                <TableColumn fx:id="colEmail" prefWidth="150.0" text="Email" />
+                <TableColumn fx:id="colPhone" prefWidth="100.0" text="Phone" />
+            </columns>
+        </TableView>
+            <Text layoutX="10.0" layoutY="11.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Student All Table">
+               <font>
+                  <Font name="System Italic" size="18.0" />
+               </font>
+            </Text>
+    </children>
+</Pane>
     </children>
 </AnchorPane>
