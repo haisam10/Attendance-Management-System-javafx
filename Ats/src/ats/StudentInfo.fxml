@@ -137,7 +137,7 @@
             <ChoiceBox fx:id="departmentField" layoutX="203.0" layoutY="107.0" prefWidth="150.0" />
          </children>
       </Pane>
-      <Pane fx:id="std_info_update" layoutX="273.0" layoutY="107.0" prefHeight="402.0" prefWidth="426.0" visible="false">
+      <Pane fx:id="std_info_update" layoutX="273.0" layoutY="107.0" prefHeight="402.0" prefWidth="426.0">
          <children>
       <Label layoutY="1.0" prefHeight="27.0" prefWidth="172.0" text="Update Student Info">
                <font>
@@ -157,10 +157,16 @@
             <ChoiceBox fx:id="updateDeptField" layoutX="149.0" layoutY="120.0" prefWidth="150.0" />
             <Text layoutX="55.0" layoutY="176.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Section" />
             <ChoiceBox fx:id="updateSectionField" layoutX="149.0" layoutY="159.0" prefWidth="150.0" />
+            <Button fx:id="loadStudentInfo" layoutX="312.0" layoutY="40.0" onAction="#loadStudentInfoById" style="-fx-background-color: #fff;" text="Load data" />
          </children>
       </Pane>
-      <Pane fx:id="std_All_Table" layoutX="235.0" layoutY="124.0" prefHeight="387.0" prefWidth="620.0">
+      <Pane fx:id="std_All_Table" layoutX="235.0" layoutY="124.0" prefHeight="387.0" prefWidth="620.0" visible="false">
     <children>
+            <Text layoutX="10.0" layoutY="11.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Student All Table">
+               <font>
+                  <Font name="System Italic" size="18.0" />
+               </font>
+            </Text>
         <TableView fx:id="studentTable" layoutX="10.0" layoutY="29.0" prefHeight="350.0" prefWidth="600.0">
             <columns>
                 <TableColumn fx:id="colName" prefWidth="123.0" text="Name" />
@@ -171,11 +177,6 @@
                   <TableColumn fx:id="colsection" prefWidth="65.0" text="Section" />
             </columns>
         </TableView>
-            <Text layoutX="10.0" layoutY="11.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Student All Table">
-               <font>
-                  <Font name="System Italic" size="18.0" />
-               </font>
-            </Text>
     </children>
 </Pane>
     </children>

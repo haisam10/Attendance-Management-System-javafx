@@ -40,6 +40,7 @@ public class StudentInfoController {
     private final String url = "jdbc:mysql://localhost:3306/ats_data";
     private final String user = "root";
     private final String password = "";
+    
     @FXML
     private Button logout_btn;
     @FXML
@@ -56,6 +57,13 @@ public class StudentInfoController {
     private Text section;
     @FXML
     private Button upd_info;
+
+    public void User_Id(String UserId){
+        admin_Id.setText(UserId);
+    }
+    public void Candidate(String selectedRole){
+       admin_Ast.setText(selectedRole);
+    }
 
     public void initialize() {
         departmentField.setItems(FXCollections.observableArrayList("CSE", "EEE", "BBA"));
@@ -126,12 +134,40 @@ public class StudentInfoController {
             stmt.setString(6, id);
 
             stmt.executeUpdate();
-            show_Std_Table();
+            show_Std_Table(); // Refresh table
 
         } catch (SQLException e) {
             e.printStackTrace();
         }
     }
+@FXML
+private void loadStudentInfoById() {
+    String id = updateIdField.getText();
+
+    String query = "SELECT name, department, section, email, phone FROM student_info WHERE student_id = ?";
+
+    try (Connection con = DriverManager.getConnection(url, user, password);
+         PreparedStatement stmt = con.prepareStatement(query)) {
+
+        stmt.setString(1, id);
+
+        ResultSet rs = stmt.executeQuery();
+
+        if (rs.next()) {
+            updateNameField.setText(rs.getString("name"));
+            updateDeptField.setValue(rs.getString("department"));
+            updateSectionField.setValue(rs.getString("section"));
+            updateEmailField.setText(rs.getString("email"));
+            updatePhoneField.setText(rs.getString("phone"));
+        } else {
+            System.out.println("Student ID not found!");
+        }
+
+    } catch (SQLException e) {
+        e.printStackTrace();
+    }
+}
+
 
     @FXML
     private void show_Std_Table() {

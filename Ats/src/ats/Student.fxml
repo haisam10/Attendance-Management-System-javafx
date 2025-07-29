@@ -12,75 +12,79 @@
 
 <AnchorPane id="AnchorPane" prefHeight="572.0" prefWidth="808.0" style="-fx-background-color: #fff;" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ats.StudentController">
    <children>
-      <Pane prefHeight="85.0" prefWidth="827.0" style="-fx-background-color: #27548A;">
+      <Pane prefHeight="572.0" prefWidth="823.0">
          <children>
-            <Label layoutX="23.0" layoutY="5.0" prefHeight="73.0" prefWidth="103.0" style="-fx-background-color: #FFF; -fx-background-radius: 3px;" />
-            <ImageView fitHeight="64.0" fitWidth="92.0" layoutX="28.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true">
+            <Pane prefHeight="85.0" prefWidth="827.0" style="-fx-background-color: #27548A;">
+               <children>
+                  <Label layoutX="23.0" layoutY="5.0" prefHeight="73.0" prefWidth="103.0" style="-fx-background-color: #FFF; -fx-background-radius: 3px;" />
+                  <ImageView fitHeight="64.0" fitWidth="92.0" layoutX="28.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../image/SMUCT%20Logo.png" />
+                     </image>
+                  </ImageView>
+                  <Text fill="WHITE" layoutX="134.0" layoutY="32.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Shanto-Mariam University of Creative Technology">
+                     <font>
+                        <Font name="System Bold" size="20.0" />
+                     </font>
+                  </Text>
+                  <Text fill="WHITE" layoutX="134.0" layoutY="56.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Permanent Campus Plot# 06, Avenue# 06">
+                     <font>
+                        <Font size="11.0" />
+                     </font>
+                  </Text>
+                  <Text fill="WHITE" layoutX="134.0" layoutY="72.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Sector# 17/H-1,Uttara, Dhaka-1230, Dhaka 1230">
+                     <font>
+                        <Font size="11.0" />
+                     </font>
+                  </Text>
+                  <Button fx:id="logout_btn" layoutX="738.0" layoutY="29.0" mnemonicParsing="false" onAction="#handleLogout" prefHeight="27.0" prefWidth="67.0" style="-fx-background-color: #fff;" text="Logout" />
+                  <ImageView accessibleText="home" fitHeight="55.0" fitWidth="31.0" layoutX="715.0" layoutY="27.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../image/icons8-logout.gif" />
+                     </image>
+                  </ImageView>
+               </children>
+            </Pane>
+            <Text layoutX="42.0" layoutY="132.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Your ID :" wrappingWidth="49.177734375">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Text>
+            <Label fx:id="std_id" layoutX="96.0" layoutY="117.0" prefHeight="20.0" prefWidth="137.0" style="-fx-background-color: #111; -fx-background-radius: 3px; -fx-background-color: ;" text="{data:inport}" textAlignment="CENTER" textFill="WHITE">
+               <padding>
+                  <Insets bottom="1.0" left="10.0" />
+               </padding>
+            </Label>
+            <Text layoutX="279.0" layoutY="131.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Candidate : ">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Text>
+            <Label fx:id="std_Ast" layoutX="353.0" layoutY="117.0" prefHeight="20.0" prefWidth="137.0" style="-fx-background-color: #111; -fx-background-radius: 3px; -fx-background-color: ;" text="{data:inport}" textAlignment="CENTER" textFill="WHITE">
+               <padding>
+                  <Insets bottom="1.0" left="10.0" />
+               </padding>
+            </Label>
+            <ImageView accessibleText="home" fitHeight="147.0" fitWidth="180.0" layoutX="638.0" layoutY="425.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../image/SMUCT%20Logo.png" />
+                  <Image url="@../image/undraw_dev-productivity_5wps.png" />
                </image>
             </ImageView>
-            <Text fill="WHITE" layoutX="134.0" layoutY="32.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Shanto-Mariam University of Creative Technology">
-               <font>
-                  <Font name="System Bold" size="20.0" />
-               </font>
-            </Text>
-            <Text fill="WHITE" layoutX="134.0" layoutY="56.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Permanent Campus Plot# 06, Avenue# 06">
-               <font>
-                  <Font size="11.0" />
-               </font>
-            </Text>
-            <Text fill="WHITE" layoutX="134.0" layoutY="72.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Sector# 17/H-1,Uttara, Dhaka-1230, Dhaka 1230">
-               <font>
-                  <Font size="11.0" />
-               </font>
-            </Text>
-            <Button fx:id="logout_btn" layoutX="738.0" layoutY="29.0" mnemonicParsing="false" onAction="#handleLogout" prefHeight="27.0" prefWidth="67.0" style="-fx-background-color: #fff;" text="Logout" />
-            <ImageView accessibleText="home" fitHeight="55.0" fitWidth="31.0" layoutX="715.0" layoutY="27.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView accessibleText="home" fitHeight="163.0" fitWidth="318.0" layoutX="6.0" layoutY="409.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../image/icons8-logout.gif" />
+                  <Image url="@../image/undraw_learning-sketchingsh.png" />
                </image>
             </ImageView>
-         </children>
-      </Pane>
-      <Text layoutX="29.0" layoutY="114.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Your ID :">
-         <font>
-            <Font name="System Bold" size="12.0" />
-         </font>
-      </Text>
-      <Label fx:id="std_id" layoutX="82.0" layoutY="99.0" prefHeight="20.0" prefWidth="137.0" style="-fx-background-color: #111; -fx-background-radius: 3px; -fx-background-color: ;" text="{data:inport}" textAlignment="CENTER" textFill="WHITE">
-         <padding>
-            <Insets bottom="1.0" left="10.0" />
-         </padding>
-      </Label>
-      <Text layoutX="14.0" layoutY="138.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Candidate : ">
-         <font>
-            <Font name="System Bold" size="12.0" />
-         </font>
-      </Text>
-      <Label fx:id="std_Ast" layoutX="82.0" layoutY="123.0" prefHeight="20.0" prefWidth="137.0" style="-fx-background-color: #111; -fx-background-radius: 3px; -fx-background-color: ;" text="{data:inport}" textAlignment="CENTER" textFill="WHITE">
-         <padding>
-            <Insets bottom="1.0" left="10.0" />
-         </padding>
-      </Label>
-      <ImageView accessibleText="home" fitHeight="147.0" fitWidth="180.0" layoutX="647.0" layoutY="85.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../image/undraw_dev-productivity_5wps.png" />
-         </image>
-      </ImageView>
-      <ImageView accessibleText="home" fitHeight="56.0" fitWidth="49.0" layoutX="230.0" layoutY="98.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../image/icons8-student-94.png" />
-         </image>
-      </ImageView>
-      <ImageView accessibleText="home" fitHeight="163.0" fitWidth="318.0" layoutX="4.0" layoutY="409.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../image/undraw_learning-sketchingsh.png" />
-         </image>
-      </ImageView>
-      <Pane layoutX="171.0" layoutY="209.0" prefHeight="200.0" prefWidth="397.0">
-         <children>
-            <Button fx:id="check_Attendance" layoutX="49.0" layoutY="25.0" mnemonicParsing="false" onAction="#check_Attendance_Btn" prefHeight="49.0" prefWidth="178.0" text="Check Attendance" />
+            <Pane layoutX="241.0" layoutY="180.0" prefHeight="200.0" prefWidth="397.0">
+               <children>
+                  <Button fx:id="check_Attendance" layoutX="72.0" layoutY="21.0" mnemonicParsing="false" onAction="#check_Attendance_Btn" prefHeight="49.0" prefWidth="178.0" text="Check Attendance" />
+                  <ImageView accessibleText="home" fitHeight="56.0" fitWidth="49.0" layoutX="14.0" layoutY="21.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../image/icons8-student-94.png" />
+                     </image>
+                  </ImageView>
+               </children>
+            </Pane>
          </children>
       </Pane>
    </children>
